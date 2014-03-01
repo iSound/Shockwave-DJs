@@ -1,0 +1,460 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		1731C18F18C1741800561FAF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1731C18E18C1741800561FAF /* Foundation.framework */; };
+		1731C19118C1741800561FAF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1731C19018C1741800561FAF /* CoreGraphics.framework */; };
+		1731C19318C1741800561FAF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1731C19218C1741800561FAF /* UIKit.framework */; };
+		1731C19918C1741800561FAF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1731C19718C1741800561FAF /* InfoPlist.strings */; };
+		1731C19B18C1741800561FAF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1731C19A18C1741800561FAF /* main.m */; };
+		1731C19F18C1741800561FAF /* PSBNAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1731C19E18C1741800561FAF /* PSBNAppDelegate.m */; };
+		1731C1A818C1741900561FAF /* PSBNViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1731C1A718C1741900561FAF /* PSBNViewController.m */; };
+		1731C1B118C1741900561FAF /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1731C1B018C1741900561FAF /* XCTest.framework */; };
+		1731C1B218C1741900561FAF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1731C18E18C1741800561FAF /* Foundation.framework */; };
+		1731C1B318C1741900561FAF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1731C19218C1741800561FAF /* UIKit.framework */; };
+		1731C1BB18C1741900561FAF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1731C1B918C1741900561FAF /* InfoPlist.strings */; };
+		1731C1BD18C1741900561FAF /* Shockwave_DJsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1731C1BC18C1741900561FAF /* Shockwave_DJsTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		1731C1B418C1741900561FAF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 1731C18318C1741800561FAF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1731C18A18C1741800561FAF;
+			remoteInfo = "Shockwave DJs";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		1731C18B18C1741800561FAF /* Shockwave DJs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shockwave DJs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1731C18E18C1741800561FAF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		1731C19018C1741800561FAF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		1731C19218C1741800561FAF /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		1731C19618C1741800561FAF /* Shockwave DJs-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Shockwave DJs-Info.plist"; sourceTree = "<group>"; };
+		1731C19818C1741800561FAF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1731C19A18C1741800561FAF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		1731C19C18C1741800561FAF /* Shockwave DJs-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Shockwave DJs-Prefix.pch"; sourceTree = "<group>"; };
+		1731C19D18C1741800561FAF /* PSBNAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSBNAppDelegate.h; sourceTree = "<group>"; };
+		1731C19E18C1741800561FAF /* PSBNAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSBNAppDelegate.m; sourceTree = "<group>"; };
+		1731C1A618C1741900561FAF /* PSBNViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSBNViewController.h; sourceTree = "<group>"; };
+		1731C1A718C1741900561FAF /* PSBNViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSBNViewController.m; sourceTree = "<group>"; };
+		1731C1AF18C1741900561FAF /* Shockwave DJsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Shockwave DJsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		1731C1B018C1741900561FAF /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		1731C1B818C1741900561FAF /* Shockwave DJsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Shockwave DJsTests-Info.plist"; sourceTree = "<group>"; };
+		1731C1BA18C1741900561FAF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		1731C1BC18C1741900561FAF /* Shockwave_DJsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Shockwave_DJsTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		1731C18818C1741800561FAF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1731C19118C1741800561FAF /* CoreGraphics.framework in Frameworks */,
+				1731C19318C1741800561FAF /* UIKit.framework in Frameworks */,
+				1731C18F18C1741800561FAF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1731C1AC18C1741900561FAF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1731C1B118C1741900561FAF /* XCTest.framework in Frameworks */,
+				1731C1B318C1741900561FAF /* UIKit.framework in Frameworks */,
+				1731C1B218C1741900561FAF /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		1731C18218C1741800561FAF = {
+			isa = PBXGroup;
+			children = (
+				1731C19418C1741800561FAF /* Shockwave DJs */,
+				1731C1B618C1741900561FAF /* Shockwave DJsTests */,
+				1731C18D18C1741800561FAF /* Frameworks */,
+				1731C18C18C1741800561FAF /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		1731C18C18C1741800561FAF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				1731C18B18C1741800561FAF /* Shockwave DJs.app */,
+				1731C1AF18C1741900561FAF /* Shockwave DJsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		1731C18D18C1741800561FAF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1731C18E18C1741800561FAF /* Foundation.framework */,
+				1731C19018C1741800561FAF /* CoreGraphics.framework */,
+				1731C19218C1741800561FAF /* UIKit.framework */,
+				1731C1B018C1741900561FAF /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1731C19418C1741800561FAF /* Shockwave DJs */ = {
+			isa = PBXGroup;
+			children = (
+				1731C19D18C1741800561FAF /* PSBNAppDelegate.h */,
+				1731C19E18C1741800561FAF /* PSBNAppDelegate.m */,
+				1731C1A618C1741900561FAF /* PSBNViewController.h */,
+				1731C1A718C1741900561FAF /* PSBNViewController.m */,
+				1731C19518C1741800561FAF /* Supporting Files */,
+			);
+			path = "Shockwave DJs";
+			sourceTree = "<group>";
+		};
+		1731C19518C1741800561FAF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1731C19618C1741800561FAF /* Shockwave DJs-Info.plist */,
+				1731C19718C1741800561FAF /* InfoPlist.strings */,
+				1731C19A18C1741800561FAF /* main.m */,
+				1731C19C18C1741800561FAF /* Shockwave DJs-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		1731C1B618C1741900561FAF /* Shockwave DJsTests */ = {
+			isa = PBXGroup;
+			children = (
+				1731C1BC18C1741900561FAF /* Shockwave_DJsTests.m */,
+				1731C1B718C1741900561FAF /* Supporting Files */,
+			);
+			path = "Shockwave DJsTests";
+			sourceTree = "<group>";
+		};
+		1731C1B718C1741900561FAF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1731C1B818C1741900561FAF /* Shockwave DJsTests-Info.plist */,
+				1731C1B918C1741900561FAF /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		1731C18A18C1741800561FAF /* Shockwave DJs */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1731C1C018C1741900561FAF /* Build configuration list for PBXNativeTarget "Shockwave DJs" */;
+			buildPhases = (
+				1731C18718C1741800561FAF /* Sources */,
+				1731C18818C1741800561FAF /* Frameworks */,
+				1731C18918C1741800561FAF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Shockwave DJs";
+			productName = "Shockwave DJs";
+			productReference = 1731C18B18C1741800561FAF /* Shockwave DJs.app */;
+			productType = "com.apple.product-type.application";
+		};
+		1731C1AE18C1741900561FAF /* Shockwave DJsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1731C1C318C1741900561FAF /* Build configuration list for PBXNativeTarget "Shockwave DJsTests" */;
+			buildPhases = (
+				1731C1AB18C1741900561FAF /* Sources */,
+				1731C1AC18C1741900561FAF /* Frameworks */,
+				1731C1AD18C1741900561FAF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				1731C1B518C1741900561FAF /* PBXTargetDependency */,
+			);
+			name = "Shockwave DJsTests";
+			productName = "Shockwave DJsTests";
+			productReference = 1731C1AF18C1741900561FAF /* Shockwave DJsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		1731C18318C1741800561FAF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = PSBN;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Tech Genius";
+				TargetAttributes = {
+					1731C1AE18C1741900561FAF = {
+						TestTargetID = 1731C18A18C1741800561FAF;
+					};
+				};
+			};
+			buildConfigurationList = 1731C18618C1741800561FAF /* Build configuration list for PBXProject "Shockwave DJs" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 1731C18218C1741800561FAF;
+			productRefGroup = 1731C18C18C1741800561FAF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1731C18A18C1741800561FAF /* Shockwave DJs */,
+				1731C1AE18C1741900561FAF /* Shockwave DJsTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		1731C18918C1741800561FAF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1731C19918C1741800561FAF /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1731C1AD18C1741900561FAF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1731C1BB18C1741900561FAF /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		1731C18718C1741800561FAF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1731C19B18C1741800561FAF /* main.m in Sources */,
+				1731C19F18C1741800561FAF /* PSBNAppDelegate.m in Sources */,
+				1731C1A818C1741900561FAF /* PSBNViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1731C1AB18C1741900561FAF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1731C1BD18C1741900561FAF /* Shockwave_DJsTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		1731C1B518C1741900561FAF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 1731C18A18C1741800561FAF /* Shockwave DJs */;
+			targetProxy = 1731C1B418C1741900561FAF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		1731C19718C1741800561FAF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1731C19818C1741800561FAF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		1731C1B918C1741900561FAF /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1731C1BA18C1741900561FAF /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		1731C1BE18C1741900561FAF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1731C1BF18C1741900561FAF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		1731C1C118C1741900561FAF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Shockwave DJs/Shockwave DJs-Prefix.pch";
+				INFOPLIST_FILE = "Shockwave DJs/Shockwave DJs-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		1731C1C218C1741900561FAF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Shockwave DJs/Shockwave DJs-Prefix.pch";
+				INFOPLIST_FILE = "Shockwave DJs/Shockwave DJs-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		1731C1C418C1741900561FAF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Shockwave DJs.app/Shockwave DJs";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Shockwave DJs/Shockwave DJs-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Shockwave DJsTests/Shockwave DJsTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		1731C1C518C1741900561FAF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Shockwave DJs.app/Shockwave DJs";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Shockwave DJs/Shockwave DJs-Prefix.pch";
+				INFOPLIST_FILE = "Shockwave DJsTests/Shockwave DJsTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1731C18618C1741800561FAF /* Build configuration list for PBXProject "Shockwave DJs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1731C1BE18C1741900561FAF /* Debug */,
+				1731C1BF18C1741900561FAF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1731C1C018C1741900561FAF /* Build configuration list for PBXNativeTarget "Shockwave DJs" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1731C1C118C1741900561FAF /* Debug */,
+				1731C1C218C1741900561FAF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		1731C1C318C1741900561FAF /* Build configuration list for PBXNativeTarget "Shockwave DJsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1731C1C418C1741900561FAF /* Debug */,
+				1731C1C518C1741900561FAF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 1731C18318C1741800561FAF /* Project object */;
+}
