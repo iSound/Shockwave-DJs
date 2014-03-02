@@ -1,14 +1,14 @@
 //
-//  PSBNAppDelegate.m
+//  SWAppDelegate.m
 //  Shockwave DJs
 //
 //  Created by Victor Ilisei on 2/28/14.
 //  Copyright (c) 2014 Tech Genius. All rights reserved.
 //
 
-#import "PSBNAppDelegate.h"
+#import "SWAppDelegate.h"
 
-@implementation PSBNAppDelegate
+@implementation SWAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -21,25 +21,6 @@
     // [Parse setApplicationId:@"<#string#>" clientKey:@"<#string#>"];
     // [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
-    // Theme-ing
-    [[UINavigationBar appearance] setBarStyle:UIBarStyleBlack];
-    // theaterListNavController.navigationBar.barStyle = UIBarStyleBlack;
-    // scoresNavController.navigationBar.barStyle = UIBarStyleBlack;
-    
-    if ([[[UIDevice currentDevice] systemVersion] intValue] >= 7) {
-        [application setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
-        
-        [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navBarTile_iOS7"] forBarMetrics:UIBarMetricsDefault];
-        // [radioNavController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navBarTile_iOS7"] forBarMetrics:UIBarMetricsDefault];
-        // [theaterListNavController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navBarTile_iOS7"] forBarMetrics:UIBarMetricsDefault];
-        // [scoresNavController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navBarTile_iOS7"] forBarMetrics:UIBarMetricsDefault];
-    } else {
-        [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navBarTile_iOS6"] forBarMetrics:UIBarMetricsDefault];
-        // [radioNavController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navBarTile_iOS6"] forBarMetrics:UIBarMetricsDefault];
-        // [theaterListNavController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navBarTile_iOS6"] forBarMetrics:UIBarMetricsDefault];
-        // [scoresNavController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navBarTile_iOS6"] forBarMetrics:UIBarMetricsDefault];
-    }
-    
     // Register for push notifications
     // [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound];
     
@@ -51,11 +32,14 @@
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         self.splitViewController = [[UISplitViewController alloc] init];
         self.splitViewController.delegate = self;
-        self.splitViewController.viewControllers = @[<#objects, ...#>];
+        // self.splitViewController.viewControllers = @[<#objects, ...#>];
         
         self.window.rootViewController = self.splitViewController;
     } else {
-        self.window.rootViewController = self.tabBarController;
+        ECSlidingViewController *slidingController = [[ECSlidingViewController alloc] init];
+        
+        
+        self.window.rootViewController = slidingController;
     }
     
     [self.window makeKeyAndVisible];

@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-#import "PSBNAppDelegate.h"
+#import "SWAppDelegate.h"
 
 int main(int argc, char * argv[]) {
     @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([PSBNAppDelegate class]));
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([SWAppDelegate class]));
     }
 }

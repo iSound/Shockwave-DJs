@@ -13,7 +13,7 @@
 		1731C19318C1741800561FAF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1731C19218C1741800561FAF /* UIKit.framework */; };
 		1731C19918C1741800561FAF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1731C19718C1741800561FAF /* InfoPlist.strings */; };
 		1731C19B18C1741800561FAF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 1731C19A18C1741800561FAF /* main.m */; };
-		1731C19F18C1741800561FAF /* PSBNAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1731C19E18C1741800561FAF /* PSBNAppDelegate.m */; };
+		1731C19F18C1741800561FAF /* SWAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 1731C19E18C1741800561FAF /* SWAppDelegate.m */; };
 		1731C1B118C1741900561FAF /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1731C1B018C1741900561FAF /* XCTest.framework */; };
 		1731C1B218C1741900561FAF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1731C18E18C1741800561FAF /* Foundation.framework */; };
 		1731C1B318C1741900561FAF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1731C19218C1741800561FAF /* UIKit.framework */; };
@@ -42,8 +42,8 @@
 		1731C19818C1741800561FAF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1731C19A18C1741800561FAF /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		1731C19C18C1741800561FAF /* Shockwave DJs-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Shockwave DJs-Prefix.pch"; sourceTree = "<group>"; };
-		1731C19D18C1741800561FAF /* PSBNAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PSBNAppDelegate.h; sourceTree = "<group>"; };
-		1731C19E18C1741800561FAF /* PSBNAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PSBNAppDelegate.m; sourceTree = "<group>"; };
+		1731C19D18C1741800561FAF /* SWAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SWAppDelegate.h; sourceTree = "<group>"; };
+		1731C19E18C1741800561FAF /* SWAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SWAppDelegate.m; sourceTree = "<group>"; };
 		1731C1AF18C1741900561FAF /* Shockwave DJsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Shockwave DJsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1731C1B018C1741900561FAF /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		1731C1B818C1741900561FAF /* Shockwave DJsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Shockwave DJsTests-Info.plist"; sourceTree = "<group>"; };
@@ -117,8 +117,8 @@
 		1731C19418C1741800561FAF /* Shockwave DJs */ = {
 			isa = PBXGroup;
 			children = (
-				1731C19D18C1741800561FAF /* PSBNAppDelegate.h */,
-				1731C19E18C1741800561FAF /* PSBNAppDelegate.m */,
+				1731C19D18C1741800561FAF /* SWAppDelegate.h */,
+				1731C19E18C1741800561FAF /* SWAppDelegate.m */,
 				1731C19518C1741800561FAF /* Supporting Files */,
 			);
 			path = "Shockwave DJs";
@@ -251,7 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1731C19B18C1741800561FAF /* main.m in Sources */,
-				1731C19F18C1741800561FAF /* PSBNAppDelegate.m in Sources */,
+				1731C19F18C1741800561FAF /* SWAppDelegate.m in Sources */,
 				172408A018C3B4FB0000BFA1 /* ECSlidingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
