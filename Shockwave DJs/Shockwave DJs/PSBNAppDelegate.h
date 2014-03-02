@@ -8,8 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface PSBNAppDelegate : UIResponder <UIApplicationDelegate>
+@interface PSBNAppDelegate : UIResponder <UIApplicationDelegate, UISplitViewControllerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
+
+@property (strong, nonatomic) UISplitViewController *splitViewController;
 
 @end

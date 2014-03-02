@@ -11,8 +11,75 @@
 @implementation PSBNAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    if ([self.window respondsToSelector:@selector(setTintColor:)]) {
+        // [self.window setTintColor:[UIColor blueColor]];
+    }
     // Override point for customization after application launch.
+    
+    // Parse stuff
+    // [Parse setApplicationId:@"<#string#>" clientKey:@"<#string#>"];
+    // [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    
+    // Theme-ing
+    [[UINavigationBar appearance] setBarStyle:UIBarStyleBlack];
+    // theaterListNavController.navigationBar.barStyle = UIBarStyleBlack;
+    // scoresNavController.navigationBar.barStyle = UIBarStyleBlack;
+    
+    if ([[[UIDevice currentDevice] systemVersion] intValue] >= 7) {
+        [application setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
+        
+        [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navBarTile_iOS7"] forBarMetrics:UIBarMetricsDefault];
+        // [radioNavController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navBarTile_iOS7"] forBarMetrics:UIBarMetricsDefault];
+        // [theaterListNavController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navBarTile_iOS7"] forBarMetrics:UIBarMetricsDefault];
+        // [scoresNavController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navBarTile_iOS7"] forBarMetrics:UIBarMetricsDefault];
+    } else {
+        [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navBarTile_iOS6"] forBarMetrics:UIBarMetricsDefault];
+        // [radioNavController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navBarTile_iOS6"] forBarMetrics:UIBarMetricsDefault];
+        // [theaterListNavController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navBarTile_iOS6"] forBarMetrics:UIBarMetricsDefault];
+        // [scoresNavController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navBarTile_iOS6"] forBarMetrics:UIBarMetricsDefault];
+    }
+    
+    // Register for push notifications
+    // [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound];
+    
+    // Reset app icon badge
+    if (application.applicationIconBadgeNumber > 0) {
+        application.applicationIconBadgeNumber = 0;
+    }
+    
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        self.splitViewController = [[UISplitViewController alloc] init];
+        self.splitViewController.delegate = self;
+        self.splitViewController.viewControllers = @[<#objects, ...#>];
+        
+        self.window.rootViewController = self.splitViewController;
+    } else {
+        self.window.rootViewController = self.tabBarController;
+    }
+    
+    [self.window makeKeyAndVisible];
     return YES;
+}
+
+- (BOOL)splitViewController:(UISplitViewController *)svc shouldHideViewController:(UIViewController *)vc inOrientation:(UIInterfaceOrientation)orientation {
+    return NO;
+}
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    // Store the deviceToken in the current Installation and save it to Parse.
+    // PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    // [currentInstallation setDeviceTokenFromData:deviceToken];
+    // [currentInstallation saveInBackground];
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
+    UIAlertView *pushAlert = [[UIAlertView alloc] initWithTitle:@"Push Notification Error" message:error.localizedDescription delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles: nil];
+    [pushAlert show];
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
+    // [PFPush handlePush:userInfo];
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application {
