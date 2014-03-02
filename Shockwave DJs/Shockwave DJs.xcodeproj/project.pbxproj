@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		172408A018C3B4FB0000BFA1 /* ECSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1724089F18C3B4FB0000BFA1 /* ECSlidingViewController.m */; };
 		1731C18F18C1741800561FAF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1731C18E18C1741800561FAF /* Foundation.framework */; };
 		1731C19118C1741800561FAF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1731C19018C1741800561FAF /* CoreGraphics.framework */; };
 		1731C19318C1741800561FAF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1731C19218C1741800561FAF /* UIKit.framework */; };
@@ -31,6 +32,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1724089E18C3B4FB0000BFA1 /* ECSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECSlidingViewController.h; sourceTree = "<group>"; };
+		1724089F18C3B4FB0000BFA1 /* ECSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECSlidingViewController.m; sourceTree = "<group>"; };
 		1731C18B18C1741800561FAF /* Shockwave DJs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shockwave DJs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1731C18E18C1741800561FAF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1731C19018C1741800561FAF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -72,6 +75,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1724089D18C3B4ED0000BFA1 /* ECSlidingViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1724089E18C3B4FB0000BFA1 /* ECSlidingViewController.h */,
+				1724089F18C3B4FB0000BFA1 /* ECSlidingViewController.m */,
+			);
+			name = ECSlidingViewController;
+			sourceTree = "<group>";
+		};
 		1731C18218C1741800561FAF = {
 			isa = PBXGroup;
 			children = (
@@ -115,6 +127,7 @@
 		1731C19518C1741800561FAF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				1724089D18C3B4ED0000BFA1 /* ECSlidingViewController */,
 				1731C19618C1741800561FAF /* Shockwave DJs-Info.plist */,
 				1731C19718C1741800561FAF /* InfoPlist.strings */,
 				1731C19A18C1741800561FAF /* main.m */,
@@ -239,6 +252,7 @@
 			files = (
 				1731C19B18C1741800561FAF /* main.m in Sources */,
 				1731C19F18C1741800561FAF /* PSBNAppDelegate.m in Sources */,
+				172408A018C3B4FB0000BFA1 /* ECSlidingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
