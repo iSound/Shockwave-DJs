@@ -32,12 +32,26 @@
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         self.splitViewController = [[UISplitViewController alloc] init];
         self.splitViewController.delegate = self;
-        // self.splitViewController.viewControllers = @[<#objects, ...#>];
+        
+        SWMenuViewController *menu = [[SWMenuViewController alloc] init];
+        
+        SWHomeViewController *home = [[SWHomeViewController alloc] init];
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:home];
+        
+        self.splitViewController.viewControllers = @[menu, navController];
         
         self.window.rootViewController = self.splitViewController;
     } else {
         ECSlidingViewController *slidingController = [[ECSlidingViewController alloc] init];
         
+        SWMenuViewController *menu = [[SWMenuViewController alloc] init];
+        slidingController.underLeftViewController = menu;
+        
+        SWHomeViewController *home = [[SWHomeViewController alloc] init];
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:home];
+        slidingController.topViewController = navController;
+        
+        [slidingController setAnchorRightRevealAmount:280.0f];
         
         self.window.rootViewController = slidingController;
     }

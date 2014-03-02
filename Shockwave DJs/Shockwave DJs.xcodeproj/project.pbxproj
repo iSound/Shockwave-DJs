@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		172408A018C3B4FB0000BFA1 /* ECSlidingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1724089F18C3B4FB0000BFA1 /* ECSlidingViewController.m */; };
+		172408A518C3B82A0000BFA1 /* SWHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 172408A418C3B82A0000BFA1 /* SWHomeViewController.m */; };
+		172408A818C3B9960000BFA1 /* SWMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 172408A718C3B9960000BFA1 /* SWMenuViewController.m */; };
+		172408AA18C3BEAE0000BFA1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 172408A918C3BEAE0000BFA1 /* Default-568h@2x.png */; };
+		172408B018C3C7390000BFA1 /* SWTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 172408AF18C3C7390000BFA1 /* SWTableViewController.m */; };
 		1731C18F18C1741800561FAF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1731C18E18C1741800561FAF /* Foundation.framework */; };
 		1731C19118C1741800561FAF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1731C19018C1741800561FAF /* CoreGraphics.framework */; };
 		1731C19318C1741800561FAF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1731C19218C1741800561FAF /* UIKit.framework */; };
@@ -34,6 +38,13 @@
 /* Begin PBXFileReference section */
 		1724089E18C3B4FB0000BFA1 /* ECSlidingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ECSlidingViewController.h; sourceTree = "<group>"; };
 		1724089F18C3B4FB0000BFA1 /* ECSlidingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ECSlidingViewController.m; sourceTree = "<group>"; };
+		172408A318C3B82A0000BFA1 /* SWHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWHomeViewController.h; sourceTree = "<group>"; };
+		172408A418C3B82A0000BFA1 /* SWHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWHomeViewController.m; sourceTree = "<group>"; };
+		172408A618C3B9960000BFA1 /* SWMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWMenuViewController.h; sourceTree = "<group>"; };
+		172408A718C3B9960000BFA1 /* SWMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWMenuViewController.m; sourceTree = "<group>"; };
+		172408A918C3BEAE0000BFA1 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		172408AE18C3C7390000BFA1 /* SWTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTableViewController.h; sourceTree = "<group>"; };
+		172408AF18C3C7390000BFA1 /* SWTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTableViewController.m; sourceTree = "<group>"; };
 		1731C18B18C1741800561FAF /* Shockwave DJs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shockwave DJs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1731C18E18C1741800561FAF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1731C19018C1741800561FAF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -84,9 +95,17 @@
 			name = ECSlidingViewController;
 			sourceTree = "<group>";
 		};
+		172408AB18C3C0710000BFA1 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		1731C18218C1741800561FAF = {
 			isa = PBXGroup;
 			children = (
+				172408A918C3BEAE0000BFA1 /* Default-568h@2x.png */,
 				1731C19418C1741800561FAF /* Shockwave DJs */,
 				1731C1B618C1741900561FAF /* Shockwave DJsTests */,
 				1731C18D18C1741800561FAF /* Frameworks */,
@@ -119,6 +138,12 @@
 			children = (
 				1731C19D18C1741800561FAF /* SWAppDelegate.h */,
 				1731C19E18C1741800561FAF /* SWAppDelegate.m */,
+				172408AE18C3C7390000BFA1 /* SWTableViewController.h */,
+				172408AF18C3C7390000BFA1 /* SWTableViewController.m */,
+				172408A618C3B9960000BFA1 /* SWMenuViewController.h */,
+				172408A718C3B9960000BFA1 /* SWMenuViewController.m */,
+				172408A318C3B82A0000BFA1 /* SWHomeViewController.h */,
+				172408A418C3B82A0000BFA1 /* SWHomeViewController.m */,
 				1731C19518C1741800561FAF /* Supporting Files */,
 			);
 			path = "Shockwave DJs";
@@ -127,6 +152,7 @@
 		1731C19518C1741800561FAF /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				172408AB18C3C0710000BFA1 /* Images */,
 				1724089D18C3B4ED0000BFA1 /* ECSlidingViewController */,
 				1731C19618C1741800561FAF /* Shockwave DJs-Info.plist */,
 				1731C19718C1741800561FAF /* InfoPlist.strings */,
@@ -198,7 +224,7 @@
 		1731C18318C1741800561FAF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = PSBN;
+				CLASSPREFIX = SW;
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Tech Genius";
 				TargetAttributes = {
@@ -232,6 +258,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1731C19918C1741800561FAF /* InfoPlist.strings in Resources */,
+				172408AA18C3BEAE0000BFA1 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,8 +278,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				1731C19B18C1741800561FAF /* main.m in Sources */,
+				172408B018C3C7390000BFA1 /* SWTableViewController.m in Sources */,
+				172408A818C3B9960000BFA1 /* SWMenuViewController.m in Sources */,
 				1731C19F18C1741800561FAF /* SWAppDelegate.m in Sources */,
 				172408A018C3B4FB0000BFA1 /* ECSlidingViewController.m in Sources */,
+				172408A518C3B82A0000BFA1 /* SWHomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

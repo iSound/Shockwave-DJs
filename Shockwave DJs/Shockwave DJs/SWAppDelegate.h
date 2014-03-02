@@ -8,6 +8,9 @@
 
 #import "ECSlidingViewController.h"
 
+#import "SWHomeViewController.h"
+#import "SWMenuViewController.h"
+
 @interface SWAppDelegate : UIResponder <UIApplicationDelegate, UISplitViewControllerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
