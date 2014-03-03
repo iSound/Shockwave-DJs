@@ -6,8 +6,6 @@
 //  Copyright (c) 2014 Tech Genius. All rights reserved.
 //
 
-#import "SWMenuViewController.h"
-
 #import "SWTableViewController.h"
 
 @interface SWTopTableViewController : SWTableViewController

@@ -12,7 +12,6 @@
 		172408A818C3B9960000BFA1 /* SWMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 172408A718C3B9960000BFA1 /* SWMenuViewController.m */; };
 		172408AA18C3BEAE0000BFA1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 172408A918C3BEAE0000BFA1 /* Default-568h@2x.png */; };
 		172408B018C3C7390000BFA1 /* SWTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 172408AF18C3C7390000BFA1 /* SWTableViewController.m */; };
-		172408B618C3CACA0000BFA1 /* SWTopTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 172408B518C3CACA0000BFA1 /* SWTopTableViewController.m */; };
 		172408B918C3D0A80000BFA1 /* menuBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 172408B718C3D0A80000BFA1 /* menuBackground.png */; };
 		172408BA18C3D0A80000BFA1 /* menuBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 172408B818C3D0A80000BFA1 /* menuBackground@2x.png */; };
 		1731C18F18C1741800561FAF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1731C18E18C1741800561FAF /* Foundation.framework */; };
@@ -26,6 +25,7 @@
 		1731C1B318C1741900561FAF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1731C19218C1741800561FAF /* UIKit.framework */; };
 		1731C1BB18C1741900561FAF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1731C1B918C1741900561FAF /* InfoPlist.strings */; };
 		1731C1BD18C1741900561FAF /* Shockwave_DJsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1731C1BC18C1741900561FAF /* Shockwave_DJsTests.m */; };
+		1734CA4118C409750051009C /* SWTopTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1734CA4018C409750051009C /* SWTopTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,8 +48,6 @@
 		172408A918C3BEAE0000BFA1 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		172408AE18C3C7390000BFA1 /* SWTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTableViewController.h; sourceTree = "<group>"; };
 		172408AF18C3C7390000BFA1 /* SWTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTableViewController.m; sourceTree = "<group>"; };
-		172408B418C3CACA0000BFA1 /* SWTopTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTopTableViewController.h; sourceTree = "<group>"; };
-		172408B518C3CACA0000BFA1 /* SWTopTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTopTableViewController.m; sourceTree = "<group>"; };
 		172408B718C3D0A80000BFA1 /* menuBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuBackground.png; sourceTree = "<group>"; };
 		172408B818C3D0A80000BFA1 /* menuBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menuBackground@2x.png"; sourceTree = "<group>"; };
 		1731C18B18C1741800561FAF /* Shockwave DJs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shockwave DJs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +65,8 @@
 		1731C1B818C1741900561FAF /* Shockwave DJsTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Shockwave DJsTests-Info.plist"; sourceTree = "<group>"; };
 		1731C1BA18C1741900561FAF /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1731C1BC18C1741900561FAF /* Shockwave_DJsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Shockwave_DJsTests.m; sourceTree = "<group>"; };
+		1734CA3F18C409750051009C /* SWTopTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTopTableViewController.h; sourceTree = "<group>"; };
+		1734CA4018C409750051009C /* SWTopTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTopTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,8 +149,8 @@
 				1731C19E18C1741800561FAF /* SWAppDelegate.m */,
 				172408AE18C3C7390000BFA1 /* SWTableViewController.h */,
 				172408AF18C3C7390000BFA1 /* SWTableViewController.m */,
-				172408B418C3CACA0000BFA1 /* SWTopTableViewController.h */,
-				172408B518C3CACA0000BFA1 /* SWTopTableViewController.m */,
+				1734CA3F18C409750051009C /* SWTopTableViewController.h */,
+				1734CA4018C409750051009C /* SWTopTableViewController.m */,
 				172408A618C3B9960000BFA1 /* SWMenuViewController.h */,
 				172408A718C3B9960000BFA1 /* SWMenuViewController.m */,
 				172408A318C3B82A0000BFA1 /* SWHomeViewController.h */,
@@ -294,7 +294,7 @@
 				172408B018C3C7390000BFA1 /* SWTableViewController.m in Sources */,
 				172408A818C3B9960000BFA1 /* SWMenuViewController.m in Sources */,
 				1731C19F18C1741800561FAF /* SWAppDelegate.m in Sources */,
-				172408B618C3CACA0000BFA1 /* SWTopTableViewController.m in Sources */,
+				1734CA4118C409750051009C /* SWTopTableViewController.m in Sources */,
 				172408A018C3B4FB0000BFA1 /* ECSlidingViewController.m in Sources */,
 				172408A518C3B82A0000BFA1 /* SWHomeViewController.m in Sources */,
 			);

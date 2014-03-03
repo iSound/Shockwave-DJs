@@ -8,6 +8,8 @@
 
 #import "SWTopTableViewController.h"
 
+#import "SWMenuViewController.h"
+
 @interface SWTopTableViewController ()
 
 @end
@@ -17,7 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    // Gesture
+	// Gesture
     [self.navigationController.view addGestureRecognizer:self.slidingViewController.panGesture];
     
     // Shadow
@@ -34,13 +36,13 @@
     }
     
     /*
-    if ([[self.slidingViewController underLeftViewController] isKindOfClass:[SWMenuViewController class]]) {
-        if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
-            self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Chat" style:UIBarButtonItemStylePlain target:self action:@selector(showRightChat)];
-        } else {
-            self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Chat" style:UIBarButtonItemStyleBordered target:self action:@selector(showRightChat)];
-        }
-    }*/
+     if ([[self.slidingViewController underLeftViewController] isKindOfClass:[SWMenuViewController class]]) {
+     if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
+     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Chat" style:UIBarButtonItemStylePlain target:self action:@selector(showRightChat)];
+     } else {
+     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Chat" style:UIBarButtonItemStyleBordered target:self action:@selector(showRightChat)];
+     }
+     }*/
 }
 
 - (void)showLeftMenu {
