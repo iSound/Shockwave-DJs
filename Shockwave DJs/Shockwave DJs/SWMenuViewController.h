@@ -8,6 +8,8 @@
 
 #import "SWHomeViewController.h"
 
+#import "SWTableViewController.h"
+
 @interface SWMenuViewController : SWTableViewController {
     NSArray *section0;
     NSArray *section1;
