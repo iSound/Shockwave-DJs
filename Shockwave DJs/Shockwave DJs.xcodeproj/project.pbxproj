@@ -12,6 +12,9 @@
 		172408A818C3B9960000BFA1 /* SWMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 172408A718C3B9960000BFA1 /* SWMenuViewController.m */; };
 		172408AA18C3BEAE0000BFA1 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 172408A918C3BEAE0000BFA1 /* Default-568h@2x.png */; };
 		172408B018C3C7390000BFA1 /* SWTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 172408AF18C3C7390000BFA1 /* SWTableViewController.m */; };
+		172408B618C3CACA0000BFA1 /* SWTopTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 172408B518C3CACA0000BFA1 /* SWTopTableViewController.m */; };
+		172408B918C3D0A80000BFA1 /* menuBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 172408B718C3D0A80000BFA1 /* menuBackground.png */; };
+		172408BA18C3D0A80000BFA1 /* menuBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 172408B818C3D0A80000BFA1 /* menuBackground@2x.png */; };
 		1731C18F18C1741800561FAF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1731C18E18C1741800561FAF /* Foundation.framework */; };
 		1731C19118C1741800561FAF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1731C19018C1741800561FAF /* CoreGraphics.framework */; };
 		1731C19318C1741800561FAF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1731C19218C1741800561FAF /* UIKit.framework */; };
@@ -45,6 +48,10 @@
 		172408A918C3BEAE0000BFA1 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		172408AE18C3C7390000BFA1 /* SWTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTableViewController.h; sourceTree = "<group>"; };
 		172408AF18C3C7390000BFA1 /* SWTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTableViewController.m; sourceTree = "<group>"; };
+		172408B418C3CACA0000BFA1 /* SWTopTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTopTableViewController.h; sourceTree = "<group>"; };
+		172408B518C3CACA0000BFA1 /* SWTopTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTopTableViewController.m; sourceTree = "<group>"; };
+		172408B718C3D0A80000BFA1 /* menuBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuBackground.png; sourceTree = "<group>"; };
+		172408B818C3D0A80000BFA1 /* menuBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menuBackground@2x.png"; sourceTree = "<group>"; };
 		1731C18B18C1741800561FAF /* Shockwave DJs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shockwave DJs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1731C18E18C1741800561FAF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1731C19018C1741800561FAF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -98,6 +105,8 @@
 		172408AB18C3C0710000BFA1 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				172408B718C3D0A80000BFA1 /* menuBackground.png */,
+				172408B818C3D0A80000BFA1 /* menuBackground@2x.png */,
 			);
 			name = Images;
 			sourceTree = "<group>";
@@ -140,6 +149,8 @@
 				1731C19E18C1741800561FAF /* SWAppDelegate.m */,
 				172408AE18C3C7390000BFA1 /* SWTableViewController.h */,
 				172408AF18C3C7390000BFA1 /* SWTableViewController.m */,
+				172408B418C3CACA0000BFA1 /* SWTopTableViewController.h */,
+				172408B518C3CACA0000BFA1 /* SWTopTableViewController.m */,
 				172408A618C3B9960000BFA1 /* SWMenuViewController.h */,
 				172408A718C3B9960000BFA1 /* SWMenuViewController.m */,
 				172408A318C3B82A0000BFA1 /* SWHomeViewController.h */,
@@ -259,6 +270,8 @@
 			files = (
 				1731C19918C1741800561FAF /* InfoPlist.strings in Resources */,
 				172408AA18C3BEAE0000BFA1 /* Default-568h@2x.png in Resources */,
+				172408B918C3D0A80000BFA1 /* menuBackground.png in Resources */,
+				172408BA18C3D0A80000BFA1 /* menuBackground@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +294,7 @@
 				172408B018C3C7390000BFA1 /* SWTableViewController.m in Sources */,
 				172408A818C3B9960000BFA1 /* SWMenuViewController.m in Sources */,
 				1731C19F18C1741800561FAF /* SWAppDelegate.m in Sources */,
+				172408B618C3CACA0000BFA1 /* SWTopTableViewController.m in Sources */,
 				172408A018C3B4FB0000BFA1 /* ECSlidingViewController.m in Sources */,
 				172408A518C3B82A0000BFA1 /* SWHomeViewController.m in Sources */,
 			);

@@ -6,6 +6,27 @@
 //  Copyright (c) 2014 Tech Genius. All rights reserved.
 //
 
-@interface SWMenuViewController : SWTableViewController
+#import "SWHomeViewController.h"
+
+@interface SWMenuViewController : SWTableViewController {
+    NSArray *section0;
+    NSArray *section1;
+    NSArray *section2;
+}
+
+- (void)home;
+
+- (void)amatterfact;
+- (void)unknown;
+- (void)bloodshot;
+- (void)lovell;
+
+- (void)facebook;
+- (void)twitter;
+- (void)instagram;
+- (void)tumblr;
+- (void)google;
+- (void)website;
+- (void)email;
 
 @end

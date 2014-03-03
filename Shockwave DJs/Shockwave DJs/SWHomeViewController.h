@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Tech Genius. All rights reserved.
 //
 
-#import "SWMenuViewController.h"
+#import "SWTopTableViewController.h"
 
-@interface SWHomeViewController : SWTableViewController {
+@interface SWHomeViewController : SWTopTableViewController {
     CGFloat headerImageYOffset;
     UIImageView *headerImage;
 }

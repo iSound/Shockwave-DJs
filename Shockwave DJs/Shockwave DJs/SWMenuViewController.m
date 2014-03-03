@@ -15,7 +15,7 @@
 @implementation SWMenuViewController
 
 - (id)initWithStyle:(UITableViewStyle)style {
-    self = [super initWithStyle:style];
+    self = [super initWithStyle:UITableViewStyleGrouped];
     if (self) {
         self.title = @"Menu";
     }
@@ -25,82 +25,85 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
-        self.tableView.contentInset = UIEdgeInsetsMake(20, 0, 0, 0);
+        self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
     }
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    self.tableView.separatorColor = [UIColor clearColor];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
+    UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"menuBackground"]];
+    backgroundImage.frame = CGRectMake(0, 0, self.navigationController.view.frame.size.width, self.tableView.contentSize.height);
+    backgroundImage.contentMode = UIViewContentModeBottom;
+    self.tableView.backgroundView = backgroundImage;
+    
+    section0 = [[NSArray alloc] initWithObjects:@"Home", nil];
+    section1 = [[NSArray alloc] initWithObjects:@"AMatterFact", @"Unknown", @"Bloodshot", @"Lovell", nil];
+    section2 = [[NSArray alloc] initWithObjects:@"Facebook", @"Twitter", @"Instagram", @"Tumblr", @"Google+", @"Website", @"Email", nil];
 }
 
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Potentially incomplete method implementation.
     // Return the number of sections.
-    return 0;
+    return 3;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete method implementation.
     // Return the number of rows in the section.
-    return 0;
+    if (section == 0) {
+        return [section0 count];
+    } else if (section == 1) {
+        return [section1 count];
+    } else if (section == 2) {
+        return [section2 count];
+    } else {
+        return 0;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
+    }
     // Configure the cell...
+    cell.backgroundView = nil;
+    cell.backgroundColor = [UIColor clearColor];
+    cell.textLabel.textColor = [UIColor whiteColor];
+    cell.textLabel.font = [UIFont fontWithName:@"Helvetica-Neue-Light" size:cell.textLabel.font.pointSize];
+    
+    if (indexPath.section == 0) {
+        cell.textLabel.text = [section0 objectAtIndex:indexPath.row];
+    } else if (indexPath.section == 1) {
+        cell.textLabel.text = [section1 objectAtIndex:indexPath.row];
+    } else if (indexPath.section == 2) {
+        cell.textLabel.text = [section2 objectAtIndex:indexPath.row];
+    }
+    
+    UIView *selectedView = [[UIView alloc] initWithFrame:cell.frame];
+    selectedView.backgroundColor = [UIColor colorWithWhite:1.0f alpha:0.5f];
+    
+    cell.selectedBackgroundView = selectedView;
     
     return cell;
 }
 
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    }   
-    else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath {
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
-
-/*
-#pragma mark - Navigation
-
-// In a story board-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (indexPath.section == 0) {
+        if (indexPath.row == 0) {
+            [self home];
+        }
+    }
 }
 
- */
+- (void)home {
+    SWHomeViewController *home = [[SWHomeViewController alloc] init];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:home];
+    
+    [self.slidingViewController setTopViewController:navController];
+    [self.slidingViewController resetTopView];
+}
 
 @end

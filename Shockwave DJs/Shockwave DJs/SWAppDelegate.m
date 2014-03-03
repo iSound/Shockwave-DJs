@@ -51,7 +51,7 @@
         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:home];
         slidingController.topViewController = navController;
         
-        [slidingController setAnchorRightRevealAmount:280.0f];
+        [slidingController setAnchorRightRevealAmount:200.0f];
         
         self.window.rootViewController = slidingController;
     }
