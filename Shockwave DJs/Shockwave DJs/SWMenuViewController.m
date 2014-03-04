@@ -24,7 +24,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    if (!self.navigationController.navigationBarHidden) {
+        self.navigationController.navigationBarHidden = YES;
+    }
     
     self.tableView.separatorColor = [UIColor clearColor];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
