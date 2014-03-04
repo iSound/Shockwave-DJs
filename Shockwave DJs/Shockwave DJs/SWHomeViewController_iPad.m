@@ -29,38 +29,6 @@
     self.navigationController.navigationBar.translucent = YES;
 }
 
-- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
-    if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-            if (UIDeviceOrientationIsLandscape(toInterfaceOrientation)) {
-                [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"menuBackground_landscape_iOS7_iPad"] forBarMetrics:UIBarMetricsDefault];
-            } else if (UIDeviceOrientationIsPortrait(toInterfaceOrientation)) {
-                [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"menuBackground_portrait_iOS7_iPad"] forBarMetrics:UIBarMetricsDefault];
-            }
-        } else {
-            if (UIDeviceOrientationIsLandscape(toInterfaceOrientation)) {
-                [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"menuBackground_landscape_iOS7_iPhone"] forBarMetrics:UIBarMetricsDefault];
-            } else if (UIDeviceOrientationIsPortrait(toInterfaceOrientation)) {
-                [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"menuBackground_portrait_iOS7_iPhone"] forBarMetrics:UIBarMetricsDefault];
-            }
-        }
-    } else {
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-            if (UIDeviceOrientationIsLandscape(toInterfaceOrientation)) {
-                [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"menuBackground_landscape_iOS6_iPad"] forBarMetrics:UIBarMetricsDefault];
-            } else if (UIDeviceOrientationIsPortrait(toInterfaceOrientation)) {
-                [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"menuBackground_portrait_iOS6_iPad"] forBarMetrics:UIBarMetricsDefault];
-            }
-        } else {
-            if (UIDeviceOrientationIsLandscape(toInterfaceOrientation)) {
-                [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"menuBackground_landscape_iOS6_iPhone"] forBarMetrics:UIBarMetricsDefault];
-            } else if (UIDeviceOrientationIsPortrait(toInterfaceOrientation)) {
-                [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"menuBackground_portrait_iOS6_iPhone"] forBarMetrics:UIBarMetricsDefault];
-            }
-        }
-    }
-}
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
