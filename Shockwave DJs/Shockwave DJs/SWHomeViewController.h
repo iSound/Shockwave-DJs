@@ -8,9 +8,6 @@
 
 #import "SWTopTableViewController.h"
 
-@interface SWHomeViewController : SWTopTableViewController {
-    CGFloat headerImageYOffset;
-    UIImageView *headerImage;
-}
+@interface SWHomeViewController : SWTopTableViewController
 
 @end

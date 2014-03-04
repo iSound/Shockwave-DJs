@@ -35,7 +35,7 @@
         
         SWMenuViewController *menu = [[SWMenuViewController alloc] init];
         
-        SWHomeViewController *home = [[SWHomeViewController alloc] init];
+        SWHomeViewController_iPad *home = [[SWHomeViewController_iPad alloc] init];
         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:home];
         
         self.splitViewController.viewControllers = @[menu, navController];

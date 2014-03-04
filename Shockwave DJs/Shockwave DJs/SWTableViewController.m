@@ -18,7 +18,11 @@
     [super viewDidLoad];
     
     if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
-        self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            self.navigationController.interactivePopGestureRecognizer.enabled = YES;
+        } else {
+            self.navigationController.interactivePopGestureRecognizer.enabled = NO;
+        }
     }
 }
 

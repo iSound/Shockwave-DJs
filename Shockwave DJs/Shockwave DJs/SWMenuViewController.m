@@ -32,7 +32,11 @@
     
     UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"menuBackground"]];
     backgroundImage.frame = CGRectMake(0, 0, self.navigationController.view.frame.size.width, self.tableView.contentSize.height);
-    backgroundImage.contentMode = UIViewContentModeBottom;
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        backgroundImage.contentMode = UIViewContentModeBottomLeft;
+    } else {
+        backgroundImage.contentMode = UIViewContentModeBottom;
+    }
     self.tableView.backgroundView = backgroundImage;
     
     section0 = [[NSArray alloc] initWithObjects:@"Home", nil];

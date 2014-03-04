@@ -9,6 +9,7 @@
 #import "ECSlidingViewController.h"
 
 #import "SWHomeViewController.h"
+#import "SWHomeViewController_iPad.h"
 #import "SWMenuViewController.h"
 
 @interface SWAppDelegate : UIResponder <UIApplicationDelegate, UISplitViewControllerDelegate>
