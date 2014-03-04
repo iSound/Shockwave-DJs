@@ -27,6 +27,12 @@
     if (!self.navigationController.navigationBarHidden) {
         self.navigationController.navigationBarHidden = YES;
     }
+    if ([self.navigationController.navigationBar respondsToSelector:@selector(barTintColor)]) {
+        self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    }
+    if ([self.navigationController.toolbar respondsToSelector:@selector(barTintColor)]) {
+        self.navigationController.toolbar.tintColor = [UIColor whiteColor];
+    }
     
     self.tableView.separatorColor = [UIColor clearColor];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;

@@ -8,6 +8,11 @@
 
 #import "SWTableViewController.h"
 
-@interface SWChatViewController : SWTableViewController
+@interface SWChatViewController : SWTableViewController {
+    UITextField *messageBox;
+}
+
+- (void)liftToolbarWhenKeybordAppears:(NSNotification *)aNotification;
+- (void)returnToolbarToInitialposition:(NSNotification *)aNotification;
 
 @end
