@@ -41,7 +41,11 @@
     
     section0 = [[NSArray alloc] initWithObjects:@"Home", nil];
     section1 = [[NSArray alloc] initWithObjects:@"AMatterFact", @"Unknown", @"Bloodshot", @"Lovell", nil];
-    section2 = [[NSArray alloc] initWithObjects:@"Facebook", @"Twitter", @"Instagram", @"Tumblr", @"Google+", @"Website", @"Email", nil];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        section2 = [[NSArray alloc] initWithObjects:@"Facebook", @"Twitter", @"Instagram", @"Tumblr", @"Google+", @"Website", @"Email", @"Chat", nil];
+    } else {
+        section2 = [[NSArray alloc] initWithObjects:@"Facebook", @"Twitter", @"Instagram", @"Tumblr", @"Google+", @"Website", @"Email", nil];
+    }
 }
 
 #pragma mark - Table view data source
@@ -118,11 +122,15 @@
 }
 
 - (void)home {
-    SWHomeViewController *home = [[SWHomeViewController alloc] init];
-    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:home];
-    
-    [self.slidingViewController setTopViewController:navController];
-    [self.slidingViewController resetTopView];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        
+    } else {
+        SWHomeViewController *home = [[SWHomeViewController alloc] init];
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:home];
+        
+        [self.slidingViewController setTopViewController:navController];
+        [self.slidingViewController resetTopView];
+    }
 }
 
 @end

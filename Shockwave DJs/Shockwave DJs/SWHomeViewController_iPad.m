@@ -24,37 +24,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-	
-    self.navigationController.navigationBar.translucent = NO;
-    if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-            if (UIDeviceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation])) {
-                [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"menuBackground_landscape_iOS7_iPad"] forBarMetrics:UIBarMetricsDefault];
-            } else if (UIDeviceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation])) {
-                [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"menuBackground_portrait_iOS7_iPad"] forBarMetrics:UIBarMetricsDefault];
-            }
-        } else {
-            if (UIDeviceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation])) {
-                [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"menuBackground_landscape_iOS7_iPhone"] forBarMetrics:UIBarMetricsDefault];
-            } else if (UIDeviceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation])) {
-                [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"menuBackground_portrait_iOS7_iPhone"] forBarMetrics:UIBarMetricsDefault];
-            }
-        }
-    } else {
-        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-            if (UIDeviceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation])) {
-                [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"menuBackground_landscape_iOS6_iPad"] forBarMetrics:UIBarMetricsDefault];
-            } else if (UIDeviceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation])) {
-                [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"menuBackground_portrait_iOS6_iPad"] forBarMetrics:UIBarMetricsDefault];
-            }
-        } else {
-            if (UIDeviceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation])) {
-                [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"menuBackground_landscape_iOS6_iPhone"] forBarMetrics:UIBarMetricsDefault];
-            } else if (UIDeviceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation])) {
-                [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"menuBackground_portrait_iOS6_iPhone"] forBarMetrics:UIBarMetricsDefault];
-            }
-        }
-    }
+    
+    self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+    self.navigationController.navigationBar.translucent = YES;
 }
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {

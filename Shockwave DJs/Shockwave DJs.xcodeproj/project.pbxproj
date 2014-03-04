@@ -26,11 +26,10 @@
 		1731C1BB18C1741900561FAF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1731C1B918C1741900561FAF /* InfoPlist.strings */; };
 		1731C1BD18C1741900561FAF /* Shockwave_DJsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1731C1BC18C1741900561FAF /* Shockwave_DJsTests.m */; };
 		1734CA4118C409750051009C /* SWTopTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1734CA4018C409750051009C /* SWTopTableViewController.m */; };
+		17ADDF4B18C5C48C00128E2B /* navBar_iOS7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17ADDF4918C5C48C00128E2B /* navBar_iOS7@2x.png */; };
+		17ADDF4C18C5C48C00128E2B /* navBar_iOS7.png in Resources */ = {isa = PBXBuildFile; fileRef = 17ADDF4A18C5C48C00128E2B /* navBar_iOS7.png */; };
+		17ADDF4F18C5C5AA00128E2B /* SWChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17ADDF4E18C5C5AA00128E2B /* SWChatViewController.m */; };
 		17FCB57618C5579C00191CA2 /* SWHomeViewController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FCB57518C5579C00191CA2 /* SWHomeViewController_iPad.m */; };
-		17FCB58A18C55F5C00191CA2 /* menuBackground_portrait_iOS7_iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 17FCB58818C55F5C00191CA2 /* menuBackground_portrait_iOS7_iPad.png */; };
-		17FCB58B18C55F5C00191CA2 /* menuBackground_portrait_iOS7_iPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17FCB58918C55F5C00191CA2 /* menuBackground_portrait_iOS7_iPad@2x.png */; };
-		17FCB58E18C55F6900191CA2 /* menuBackground_landscape_iOS7_iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = 17FCB58C18C55F6900191CA2 /* menuBackground_landscape_iOS7_iPad.png */; };
-		17FCB58F18C55F6900191CA2 /* menuBackground_landscape_iOS7_iPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17FCB58D18C55F6900191CA2 /* menuBackground_landscape_iOS7_iPad@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,12 +71,12 @@
 		1731C1BC18C1741900561FAF /* Shockwave_DJsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Shockwave_DJsTests.m; sourceTree = "<group>"; };
 		1734CA3F18C409750051009C /* SWTopTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTopTableViewController.h; sourceTree = "<group>"; };
 		1734CA4018C409750051009C /* SWTopTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTopTableViewController.m; sourceTree = "<group>"; };
+		17ADDF4918C5C48C00128E2B /* navBar_iOS7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navBar_iOS7@2x.png"; sourceTree = "<group>"; };
+		17ADDF4A18C5C48C00128E2B /* navBar_iOS7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navBar_iOS7.png; sourceTree = "<group>"; };
+		17ADDF4D18C5C5AA00128E2B /* SWChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWChatViewController.h; sourceTree = "<group>"; };
+		17ADDF4E18C5C5AA00128E2B /* SWChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWChatViewController.m; sourceTree = "<group>"; };
 		17FCB57418C5579C00191CA2 /* SWHomeViewController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWHomeViewController_iPad.h; sourceTree = "<group>"; };
 		17FCB57518C5579C00191CA2 /* SWHomeViewController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWHomeViewController_iPad.m; sourceTree = "<group>"; };
-		17FCB58818C55F5C00191CA2 /* menuBackground_portrait_iOS7_iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuBackground_portrait_iOS7_iPad.png; sourceTree = "<group>"; };
-		17FCB58918C55F5C00191CA2 /* menuBackground_portrait_iOS7_iPad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menuBackground_portrait_iOS7_iPad@2x.png"; sourceTree = "<group>"; };
-		17FCB58C18C55F6900191CA2 /* menuBackground_landscape_iOS7_iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuBackground_landscape_iOS7_iPad.png; sourceTree = "<group>"; };
-		17FCB58D18C55F6900191CA2 /* menuBackground_landscape_iOS7_iPad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menuBackground_landscape_iOS7_iPad@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -165,6 +164,8 @@
 				1734CA4018C409750051009C /* SWTopTableViewController.m */,
 				172408A618C3B9960000BFA1 /* SWMenuViewController.h */,
 				172408A718C3B9960000BFA1 /* SWMenuViewController.m */,
+				17ADDF4D18C5C5AA00128E2B /* SWChatViewController.h */,
+				17ADDF4E18C5C5AA00128E2B /* SWChatViewController.m */,
 				172408A318C3B82A0000BFA1 /* SWHomeViewController.h */,
 				172408A418C3B82A0000BFA1 /* SWHomeViewController.m */,
 				17FCB57418C5579C00191CA2 /* SWHomeViewController_iPad.h */,
@@ -205,127 +206,29 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		17ADDF4718C5C45D00128E2B /* iOS 7 */ = {
+			isa = PBXGroup;
+			children = (
+				17ADDF4918C5C48C00128E2B /* navBar_iOS7@2x.png */,
+				17ADDF4A18C5C48C00128E2B /* navBar_iOS7.png */,
+			);
+			name = "iOS 7";
+			sourceTree = "<group>";
+		};
+		17ADDF4818C5C46300128E2B /* iOS 6 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "iOS 6";
+			sourceTree = "<group>";
+		};
 		17FCB57718C55EDB00191CA2 /* Navigation Bar */ = {
 			isa = PBXGroup;
 			children = (
-				17FCB57918C55EF600191CA2 /* Portrait */,
-				17FCB57818C55EF100191CA2 /* Landscape */,
+				17ADDF4818C5C46300128E2B /* iOS 6 */,
+				17ADDF4718C5C45D00128E2B /* iOS 7 */,
 			);
 			name = "Navigation Bar";
-			sourceTree = "<group>";
-		};
-		17FCB57818C55EF100191CA2 /* Landscape */ = {
-			isa = PBXGroup;
-			children = (
-				17FCB57B18C55F0800191CA2 /* iOS 6 */,
-				17FCB57A18C55EFD00191CA2 /* iOS 7 */,
-			);
-			name = Landscape;
-			sourceTree = "<group>";
-		};
-		17FCB57918C55EF600191CA2 /* Portrait */ = {
-			isa = PBXGroup;
-			children = (
-				17FCB58318C55F3B00191CA2 /* iOS 6 */,
-				17FCB58218C55F3700191CA2 /* iOS 7 */,
-			);
-			name = Portrait;
-			sourceTree = "<group>";
-		};
-		17FCB57A18C55EFD00191CA2 /* iOS 7 */ = {
-			isa = PBXGroup;
-			children = (
-				17FCB58018C55F2A00191CA2 /* iPhone */,
-				17FCB57F18C55F2300191CA2 /* iPad */,
-			);
-			name = "iOS 7";
-			sourceTree = "<group>";
-		};
-		17FCB57B18C55F0800191CA2 /* iOS 6 */ = {
-			isa = PBXGroup;
-			children = (
-				17FCB57E18C55F1E00191CA2 /* iPhone */,
-				17FCB57C18C55F1400191CA2 /* iPad */,
-			);
-			name = "iOS 6";
-			sourceTree = "<group>";
-		};
-		17FCB57C18C55F1400191CA2 /* iPad */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = iPad;
-			sourceTree = "<group>";
-		};
-		17FCB57E18C55F1E00191CA2 /* iPhone */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = iPhone;
-			sourceTree = "<group>";
-		};
-		17FCB57F18C55F2300191CA2 /* iPad */ = {
-			isa = PBXGroup;
-			children = (
-				17FCB58C18C55F6900191CA2 /* menuBackground_landscape_iOS7_iPad.png */,
-				17FCB58D18C55F6900191CA2 /* menuBackground_landscape_iOS7_iPad@2x.png */,
-			);
-			name = iPad;
-			sourceTree = "<group>";
-		};
-		17FCB58018C55F2A00191CA2 /* iPhone */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = iPhone;
-			sourceTree = "<group>";
-		};
-		17FCB58218C55F3700191CA2 /* iOS 7 */ = {
-			isa = PBXGroup;
-			children = (
-				17FCB58518C55F4100191CA2 /* iPhone */,
-				17FCB58418C55F3F00191CA2 /* iPad */,
-			);
-			name = "iOS 7";
-			sourceTree = "<group>";
-		};
-		17FCB58318C55F3B00191CA2 /* iOS 6 */ = {
-			isa = PBXGroup;
-			children = (
-				17FCB58718C55F4700191CA2 /* iPhone */,
-				17FCB58618C55F4400191CA2 /* iPad */,
-			);
-			name = "iOS 6";
-			sourceTree = "<group>";
-		};
-		17FCB58418C55F3F00191CA2 /* iPad */ = {
-			isa = PBXGroup;
-			children = (
-				17FCB58818C55F5C00191CA2 /* menuBackground_portrait_iOS7_iPad.png */,
-				17FCB58918C55F5C00191CA2 /* menuBackground_portrait_iOS7_iPad@2x.png */,
-			);
-			name = iPad;
-			sourceTree = "<group>";
-		};
-		17FCB58518C55F4100191CA2 /* iPhone */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = iPhone;
-			sourceTree = "<group>";
-		};
-		17FCB58618C55F4400191CA2 /* iPad */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = iPad;
-			sourceTree = "<group>";
-		};
-		17FCB58718C55F4700191CA2 /* iPhone */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = iPhone;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -408,11 +311,9 @@
 				1731C19918C1741800561FAF /* InfoPlist.strings in Resources */,
 				172408AA18C3BEAE0000BFA1 /* Default-568h@2x.png in Resources */,
 				172408B918C3D0A80000BFA1 /* menuBackground.png in Resources */,
-				17FCB58F18C55F6900191CA2 /* menuBackground_landscape_iOS7_iPad@2x.png in Resources */,
-				17FCB58A18C55F5C00191CA2 /* menuBackground_portrait_iOS7_iPad.png in Resources */,
-				17FCB58B18C55F5C00191CA2 /* menuBackground_portrait_iOS7_iPad@2x.png in Resources */,
+				17ADDF4C18C5C48C00128E2B /* navBar_iOS7.png in Resources */,
 				172408BA18C3D0A80000BFA1 /* menuBackground@2x.png in Resources */,
-				17FCB58E18C55F6900191CA2 /* menuBackground_landscape_iOS7_iPad.png in Resources */,
+				17ADDF4B18C5C48C00128E2B /* navBar_iOS7@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,6 +336,7 @@
 				172408B018C3C7390000BFA1 /* SWTableViewController.m in Sources */,
 				172408A818C3B9960000BFA1 /* SWMenuViewController.m in Sources */,
 				1731C19F18C1741800561FAF /* SWAppDelegate.m in Sources */,
+				17ADDF4F18C5C5AA00128E2B /* SWChatViewController.m in Sources */,
 				1734CA4118C409750051009C /* SWTopTableViewController.m in Sources */,
 				17FCB57618C5579C00191CA2 /* SWHomeViewController_iPad.m in Sources */,
 				172408A018C3B4FB0000BFA1 /* ECSlidingViewController.m in Sources */,
