@@ -8,6 +8,8 @@
 
 #import "SWHomeViewController.h"
 
+#import "SWChatViewController.h"
+
 #import "SWTableViewController.h"
 
 @interface SWMenuViewController : SWTableViewController {
@@ -30,5 +32,6 @@
 - (void)google;
 - (void)website;
 - (void)email;
+- (void)chat;
 
 @end

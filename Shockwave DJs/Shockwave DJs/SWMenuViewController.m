@@ -119,6 +119,34 @@
         if (indexPath.row == 0) {
             [self home];
         }
+    } else if (indexPath.section == 1) {
+        if (indexPath.row == 0) {
+            [self amatterfact];
+        } else if (indexPath.row == 1) {
+            [self unknown];
+        } else if (indexPath.row == 2) {
+            [self bloodshot];
+        } else if (indexPath.row == 3) {
+            [self lovell];
+        }
+    } else if (indexPath.section == 2) {
+        if (indexPath.row == 0) {
+            [self facebook];
+        } else if (indexPath.row == 1) {
+            [self twitter];
+        } else if (indexPath.row == 2) {
+            [self instagram];
+        } else if (indexPath.row == 3) {
+            [self tumblr];
+        } else if (indexPath.row == 4) {
+            [self google];
+        } else if (indexPath.row == 5) {
+            [self website];
+        } else if (indexPath.row == 6) {
+            [self email];
+        } else if (indexPath.row == 7) {
+            [self chat];
+        }
     }
 }
 
@@ -131,6 +159,13 @@
         
         [self.slidingViewController setTopViewController:navController];
         [self.slidingViewController resetTopView];
+    }
+}
+
+- (void)chat {
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        SWChatViewController *chat = [[SWChatViewController alloc] init];
+        [self.navigationController pushViewController:chat animated:YES];
     }
 }
 
