@@ -34,11 +34,12 @@
         self.splitViewController.delegate = self;
         
         SWMenuViewController *menu = [[SWMenuViewController alloc] init];
+        UINavigationController *menuNavController = [[UINavigationController alloc] initWithRootViewController:menu];
         
         SWHomeViewController_iPad *home = [[SWHomeViewController_iPad alloc] init];
-        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:home];
+        UINavigationController *homeNavController = [[UINavigationController alloc] initWithRootViewController:home];
         
-        self.splitViewController.viewControllers = @[menu, navController];
+        self.splitViewController.viewControllers = @[menuNavController, homeNavController];
         
         self.window.rootViewController = self.splitViewController;
     } else {
