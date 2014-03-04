@@ -24,9 +24,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
-        self.tableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
-    }
+    
+    
     self.tableView.separatorColor = [UIColor clearColor];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
