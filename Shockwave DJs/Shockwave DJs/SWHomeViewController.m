@@ -130,8 +130,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
     if (section == 1) {
-        #warning Incomplete method implementation.
-        return 0;
+        return [feedContent count];
     } else {
         return 1;
     }
