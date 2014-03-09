@@ -51,12 +51,12 @@
         SWHomeViewController *home = [[SWHomeViewController alloc] init];
         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:home];
         slidingController.topViewController = navController;
-        
         [slidingController setAnchorRightRevealAmount:200.0f];
         
         SWChatViewController *chat = [[SWChatViewController alloc] init];
         UINavigationController *chatNavController = [[UINavigationController alloc] initWithRootViewController:chat];
         slidingController.underRightViewController = chatNavController;
+        [slidingController setAnchorLeftRevealAmount:280.0f];
         
         self.window.rootViewController = slidingController;
     }

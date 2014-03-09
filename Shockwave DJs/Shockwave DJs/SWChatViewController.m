@@ -45,7 +45,6 @@
     CGImageRelease(imageRef);
     
     // Username
-    // Get username
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     NSString *PREusername = [defaults objectForKey:@"chat_name"];
     NSString *FINALusername = [PREusername stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
@@ -71,8 +70,11 @@
     messageBox.keyboardAppearance = UIKeyboardAppearanceAlert;
     messageBox.textColor = [UIColor whiteColor];
     messageBox.returnKeyType = UIReturnKeySend;
-    // messageBox.borderStyle = UITextBorderStyleRoundedRect;
-    messageBox.attributedPlaceholder = [[NSAttributedString alloc] initWithString:username attributes:@{NSForegroundColorAttributeName:[UIColor lightTextColor]}];
+    if (![self respondsToSelector:@selector(edgesForExtendedLayout)]) {
+        messageBox.borderStyle = UITextBorderStyleRoundedRect;
+    } else {
+        messageBox.attributedPlaceholder = [[NSAttributedString alloc] initWithString:username attributes:@{NSForegroundColorAttributeName:[UIColor lightTextColor]}];
+    }
     
     self.navigationController.toolbar.barStyle = UIBarStyleBlack;
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {

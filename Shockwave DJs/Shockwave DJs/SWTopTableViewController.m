@@ -36,7 +36,7 @@
         }
     }
     
-    if ([[self.slidingViewController underRightViewController] isKindOfClass:[SWChatViewController class]]) {
+    if ([[self.slidingViewController underRightViewController] isKindOfClass:[UINavigationController class]]) {
         if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
             self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Chat" style:UIBarButtonItemStylePlain target:self action:@selector(showRightChat)];
         } else {
