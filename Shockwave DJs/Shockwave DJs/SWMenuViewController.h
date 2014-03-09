@@ -28,7 +28,6 @@
 - (void)facebook;
 - (void)twitter;
 - (void)instagram;
-- (void)tumblr;
 - (void)google;
 - (void)website;
 - (void)email;

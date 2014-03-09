@@ -49,9 +49,9 @@
     section0 = [[NSArray alloc] initWithObjects:@"Home", nil];
     section1 = [[NSArray alloc] initWithObjects:@"AMatterFact", @"Unknown", @"Bloodshot", @"Lovell", nil];
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        section2 = [[NSArray alloc] initWithObjects:@"Facebook", @"Twitter", @"Instagram", @"Tumblr", @"Google+", @"Website", @"Email", @"Chat", nil];
+        section2 = [[NSArray alloc] initWithObjects:@"Facebook", @"Twitter", @"Instagram", @"Google+", @"Website", @"Email", @"Chat", nil];
     } else {
-        section2 = [[NSArray alloc] initWithObjects:@"Facebook", @"Twitter", @"Instagram", @"Tumblr", @"Google+", @"Website", @"Email", nil];
+        section2 = [[NSArray alloc] initWithObjects:@"Facebook", @"Twitter", @"Instagram", @"Google+", @"Website", @"Email", nil];
     }
 }
 
@@ -143,14 +143,12 @@
         } else if (indexPath.row == 2) {
             [self instagram];
         } else if (indexPath.row == 3) {
-            [self tumblr];
-        } else if (indexPath.row == 4) {
             [self google];
-        } else if (indexPath.row == 5) {
+        } else if (indexPath.row == 4) {
             [self website];
-        } else if (indexPath.row == 6) {
+        } else if (indexPath.row == 5) {
             [self email];
-        } else if (indexPath.row == 7) {
+        } else if (indexPath.row == 6) {
             [self chat];
         }
     }
