@@ -30,11 +30,16 @@
     
     UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
     refresh.tintColor = [UIColor blueColor];
+    [refresh addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
     self.refreshControl = refresh;
     
     // iAds
     iAd = [[ADBannerView alloc] initWithFrame:CGRectZero];
     iAd.delegate = self;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [self refresh];
 }
 
 - (void)bannerViewDidLoadAd:(ADBannerView *)banner {
@@ -44,6 +49,65 @@
 
 - (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error {
     [banner removeFromSuperview];
+}
+
+- (void)refresh {
+    [self.refreshControl beginRefreshing];
+    PFQuery *query1 = [PFQuery queryWithClassName:@"DJamatterfactMixes"];
+    query1.limit = 1000;
+    [query1 findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        feedContent = [[NSMutableArray alloc] init];
+        for (PFObject *object in objects) {
+            [feedContent addObject:object];
+        }
+        [feedContent sortUsingComparator:^NSComparisonResult(id dict1, id dict2) {
+            NSDate *date1 = [(PFObject *)dict1 objectForKey:@"mixDate"];
+            NSDate *date2 = [(PFObject *)dict2 objectForKey:@"mixDate"];
+            return [date2 compare:date1];
+        }];
+        
+        PFQuery *query2 = [PFQuery queryWithClassName:@"DJunknownMixes"];
+        query2.limit = 1000;
+        [query2 findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            for (PFObject *object in objects) {
+                [feedContent addObject:object];
+            }
+            [feedContent sortUsingComparator:^NSComparisonResult(id dict1, id dict2) {
+                NSDate *date1 = [(PFObject *)dict1 objectForKey:@"mixDate"];
+                NSDate *date2 = [(PFObject *)dict2 objectForKey:@"mixDate"];
+                return [date2 compare:date1];
+            }];
+            
+            PFQuery *query3 = [PFQuery queryWithClassName:@"DJbloodshotMixes"];
+            query3.limit = 1000;
+            [query3 findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                for (PFObject *object in objects) {
+                    [feedContent addObject:object];
+                }
+                [feedContent sortUsingComparator:^NSComparisonResult(id dict1, id dict2) {
+                    NSDate *date1 = [(PFObject *)dict1 objectForKey:@"mixDate"];
+                    NSDate *date2 = [(PFObject *)dict2 objectForKey:@"mixDate"];
+                    return [date2 compare:date1];
+                }];
+                
+                PFQuery *query4 = [PFQuery queryWithClassName:@"DJlovellMixes"];
+                query4.limit = 1000;
+                [query4 findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+                    for (PFObject *object in objects) {
+                        [feedContent addObject:object];
+                    }
+                    [feedContent sortUsingComparator:^NSComparisonResult(id dict1, id dict2) {
+                        NSDate *date1 = [(PFObject *)dict1 objectForKey:@"mixDate"];
+                        NSDate *date2 = [(PFObject *)dict2 objectForKey:@"mixDate"];
+                        return [date2 compare:date1];
+                    }];
+                    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationAutomatic];
+                    
+                    [self.refreshControl endRefreshing];
+                }];
+            }];
+        }];
+    }];
 }
 
 #pragma mark - Table view data source
@@ -66,8 +130,7 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
     if (section == 1) {
-        #warning Incomplete method implementation.
-        return 0;
+        return [feedContent count];
     } else {
         return 1;
     }
@@ -77,14 +140,34 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     // Configure the cell...
     if (indexPath.section == 0) {
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.textLabel.text = @"Banners";
     } else if (indexPath.section == 1) {
-        cell.textLabel.text = [NSString stringWithFormat:@"Mix %ld", (long)indexPath.row];
+        PFObject *object = [feedContent objectAtIndex:indexPath.row];
+        
+        cell.textLabel.text = object[@"name"];
+        cell.detailTextLabel.text = @"<#string#>";
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        
+        // Async loading of posters
+        NSURL *url = [NSURL URLWithString:[object objectForKey:@"iconURL"]];
+        NSURLRequest* request = [NSURLRequest requestWithURL:url];
+        url = nil;
+        
+        [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
+            cell.imageView.image = nil;
+            if (!error) {
+                cell.imageView.image = [UIImage imageWithData:data];
+                cell.imageView.layer.cornerRadius = cell.frame.size.height/2;
+                cell.imageView.layer.masksToBounds = YES;
+            }
+            [cell setNeedsLayout]; 
+        }];
+        request = nil;
     } else if (indexPath.section == 2) {
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.textLabel.text = @"";
