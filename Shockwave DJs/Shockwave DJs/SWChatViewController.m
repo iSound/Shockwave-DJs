@@ -215,7 +215,7 @@
 - (void)loginUser {
     PFLogInViewController *logInController = [[PFLogInViewController alloc] init];
     logInController.delegate = self;
-    logInController.fields = PFLogInFieldsUsernameAndPassword | PFLogInFieldsLogInButton | PFLogInFieldsPasswordForgotten | PFLogInFieldsDismissButton;
+    logInController.fields = PFLogInFieldsUsernameAndPassword | PFLogInFieldsLogInButton | PFLogInFieldsSignUpButton | PFLogInFieldsPasswordForgotten | PFLogInFieldsDismissButton;
     [self presentViewController:logInController animated:YES completion:nil];
 }
 
