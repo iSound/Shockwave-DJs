@@ -10,7 +10,7 @@
 
 #import "SWTableViewController.h"
 
-@interface SWChatViewController : SWTableViewController {
+@interface SWChatViewController : SWTableViewController <PFLogInViewControllerDelegate> {
     NSString *username;
     
     NSMutableArray *chatArray;
@@ -24,5 +24,8 @@
 - (void)liftToolbarWhenKeybordAppears:(NSNotification *)aNotification;
 - (void)returnToolbarToInitialposition:(NSNotification *)aNotification;
 - (void)submitMessage;
+
+- (void)loginUser;
+- (void)logoutUser;
 
 @end

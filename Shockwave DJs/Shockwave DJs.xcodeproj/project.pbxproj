@@ -31,6 +31,7 @@
 		1731C1BB18C1741900561FAF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1731C1B918C1741900561FAF /* InfoPlist.strings */; };
 		1731C1BD18C1741900561FAF /* Shockwave_DJsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1731C1BC18C1741900561FAF /* Shockwave_DJsTests.m */; };
 		1734CA4118C409750051009C /* SWTopTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1734CA4018C409750051009C /* SWTopTableViewController.m */; };
+		176D98FF18CC2AE6006D33D9 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 176D98FE18CC2AE6006D33D9 /* Settings.bundle */; };
 		17ADDF4B18C5C48C00128E2B /* navBar_iOS7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17ADDF4918C5C48C00128E2B /* navBar_iOS7@2x.png */; };
 		17ADDF4C18C5C48C00128E2B /* navBar_iOS7.png in Resources */ = {isa = PBXBuildFile; fileRef = 17ADDF4A18C5C48C00128E2B /* navBar_iOS7.png */; };
 		17ADDF4F18C5C5AA00128E2B /* SWChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17ADDF4E18C5C5AA00128E2B /* SWChatViewController.m */; };
@@ -83,6 +84,7 @@
 		1731C1BC18C1741900561FAF /* Shockwave_DJsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Shockwave_DJsTests.m; sourceTree = "<group>"; };
 		1734CA3F18C409750051009C /* SWTopTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTopTableViewController.h; sourceTree = "<group>"; };
 		1734CA4018C409750051009C /* SWTopTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTopTableViewController.m; sourceTree = "<group>"; };
+		176D98FE18CC2AE6006D33D9 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		17ADDF4918C5C48C00128E2B /* navBar_iOS7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navBar_iOS7@2x.png"; sourceTree = "<group>"; };
 		17ADDF4A18C5C48C00128E2B /* navBar_iOS7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navBar_iOS7.png; sourceTree = "<group>"; };
 		17ADDF4D18C5C5AA00128E2B /* SWChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWChatViewController.h; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 				1731C19718C1741800561FAF /* InfoPlist.strings */,
 				1731C19A18C1741800561FAF /* main.m */,
 				1731C19C18C1741800561FAF /* Shockwave DJs-Prefix.pch */,
+				176D98FE18CC2AE6006D33D9 /* Settings.bundle */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				176D98FF18CC2AE6006D33D9 /* Settings.bundle in Resources */,
 				172FAF7518CBFD7300C39E0F /* ChatCell.xib in Resources */,
 				1731C19918C1741800561FAF /* InfoPlist.strings in Resources */,
 				172408AA18C3BEAE0000BFA1 /* Default-568h@2x.png in Resources */,

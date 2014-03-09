@@ -81,13 +81,11 @@
         self.toolbarItems = @[[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil], [[UIBarButtonItem alloc] initWithCustomView:messageBox], [[UIBarButtonItem alloc] initWithTitle:@"Send" style:UIBarButtonItemStyleDone target:self action:@selector(submitMessage)]];
     }
     
-    /*
-    for (int i = 0; i < 1000; i++) {
-        PFObject *object = [PFObject objectWithClassName:@"chat"];
-        object[@"content"] = @"Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
-        object[@"userName"] = @"DJ AMatterFact";
-        [object saveInBackground];
-    }*/
+    if ([PFUser currentUser]) {
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:[PFUser currentUser].username style:UIBarButtonItemStyleBordered target:self action:@selector(logoutUser)];
+    } else {
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Login" style:UIBarButtonItemStyleBordered target:self action:@selector(loginUser)];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -212,6 +210,33 @@
             [self refresh];
         }
     }];
+}
+
+- (void)loginUser {
+    PFLogInViewController *logInController = [[PFLogInViewController alloc] init];
+    logInController.delegate = self;
+    logInController.fields = PFLogInFieldsUsernameAndPassword | PFLogInFieldsLogInButton | PFLogInFieldsPasswordForgotten | PFLogInFieldsDismissButton;
+    [self presentViewController:logInController animated:YES completion:nil];
+}
+
+- (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
+    if ([PFUser currentUser]) {
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:[PFUser currentUser].username style:UIBarButtonItemStyleBordered target:self action:@selector(logoutUser)];
+    }
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)logInViewControllerDidCancelLogIn:(PFLogInViewController *)logInController {
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Login" style:UIBarButtonItemStyleBordered target:self action:@selector(loginUser)];
+}
+
+- (void)logoutUser {
+    if ([PFUser currentUser]) {
+        [PFUser logOut];
+    }
+    if (![PFUser currentUser]) {
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Login" style:UIBarButtonItemStyleBordered target:self action:@selector(loginUser)];
+    }
 }
 
 #pragma mark - Table view data source
