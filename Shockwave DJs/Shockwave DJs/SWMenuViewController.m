@@ -166,6 +166,46 @@
     }
 }
 
+- (void)amatterfact {
+    
+}
+
+- (void)unknown {
+    
+}
+
+- (void)bloodshot {
+    
+}
+
+- (void)lovell {
+    
+}
+
+- (void)facebook {
+    
+}
+
+- (void)twitter {
+    
+}
+
+- (void)instagram {
+    
+}
+
+- (void)google {
+    
+}
+
+- (void)website {
+    
+}
+
+- (void)email {
+    
+}
+
 - (void)chat {
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         SWChatViewController *chat = [[SWChatViewController alloc] init];
