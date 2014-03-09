@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Tech Genius. All rights reserved.
 //
 
+#import <Parse/Parse.h>
+
 #import "SWTableViewController.h"
 
 @interface SWChatViewController : SWTableViewController {

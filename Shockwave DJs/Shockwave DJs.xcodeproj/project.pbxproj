@@ -15,6 +15,9 @@
 		172408B918C3D0A80000BFA1 /* menuBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 172408B718C3D0A80000BFA1 /* menuBackground.png */; };
 		172408BA18C3D0A80000BFA1 /* menuBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 172408B818C3D0A80000BFA1 /* menuBackground@2x.png */; };
 		172FAF7518CBFD7300C39E0F /* ChatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 172FAF7418CBFD7300C39E0F /* ChatCell.xib */; };
+		172FAF7718CC04DC00C39E0F /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 172FAF7618CC04DC00C39E0F /* Parse.framework */; };
+		172FAF7D18CC055100C39E0F /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 172FAF7C18CC055100C39E0F /* MobileCoreServices.framework */; };
+		172FAF7F18CC055A00C39E0F /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 172FAF7E18CC055A00C39E0F /* SystemConfiguration.framework */; };
 		1731C18F18C1741800561FAF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1731C18E18C1741800561FAF /* Foundation.framework */; };
 		1731C19118C1741800561FAF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1731C19018C1741800561FAF /* CoreGraphics.framework */; };
 		1731C19318C1741800561FAF /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1731C19218C1741800561FAF /* UIKit.framework */; };
@@ -56,6 +59,11 @@
 		172408B718C3D0A80000BFA1 /* menuBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuBackground.png; sourceTree = "<group>"; };
 		172408B818C3D0A80000BFA1 /* menuBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menuBackground@2x.png"; sourceTree = "<group>"; };
 		172FAF7418CBFD7300C39E0F /* ChatCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatCell.xib; sourceTree = "<group>"; };
+		172FAF7618CC04DC00C39E0F /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		172FAF7818CC052400C39E0F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		172FAF7A18CC054100C39E0F /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		172FAF7C18CC055100C39E0F /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		172FAF7E18CC055A00C39E0F /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		1731C18B18C1741800561FAF /* Shockwave DJs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Shockwave DJs.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1731C18E18C1741800561FAF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		1731C19018C1741800561FAF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -86,8 +94,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				172FAF7F18CC055A00C39E0F /* SystemConfiguration.framework in Frameworks */,
+				172FAF7D18CC055100C39E0F /* MobileCoreServices.framework in Frameworks */,
 				1731C19118C1741800561FAF /* CoreGraphics.framework in Frameworks */,
 				1731C19318C1741800561FAF /* UIKit.framework in Frameworks */,
+				172FAF7718CC04DC00C39E0F /* Parse.framework in Frameworks */,
 				1731C18F18C1741800561FAF /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -147,6 +158,11 @@
 		1731C18D18C1741800561FAF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				172FAF7E18CC055A00C39E0F /* SystemConfiguration.framework */,
+				172FAF7C18CC055100C39E0F /* MobileCoreServices.framework */,
+				172FAF7A18CC054100C39E0F /* CoreLocation.framework */,
+				172FAF7818CC052400C39E0F /* AudioToolbox.framework */,
+				172FAF7618CC04DC00C39E0F /* Parse.framework */,
 				1731C18E18C1741800561FAF /* Foundation.framework */,
 				1731C19018C1741800561FAF /* CoreGraphics.framework */,
 				1731C19218C1741800561FAF /* UIKit.framework */,
@@ -465,6 +481,10 @@
 		1731C1C118C1741900561FAF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/vilisei/Apps/Shockwave-DJs/Shockwave\\ DJs",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Shockwave DJs/Shockwave DJs-Prefix.pch";
 				INFOPLIST_FILE = "Shockwave DJs/Shockwave DJs-Info.plist";
@@ -476,6 +496,10 @@
 		1731C1C218C1741900561FAF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/vilisei/Apps/Shockwave-DJs/Shockwave\\ DJs",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Shockwave DJs/Shockwave DJs-Prefix.pch";
 				INFOPLIST_FILE = "Shockwave DJs/Shockwave DJs-Info.plist";

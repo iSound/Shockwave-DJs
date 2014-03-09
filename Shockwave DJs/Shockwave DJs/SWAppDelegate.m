@@ -18,11 +18,11 @@
     // Override point for customization after application launch.
     
     // Parse stuff
-    // [Parse setApplicationId:@"<#string#>" clientKey:@"<#string#>"];
-    // [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+    [Parse setApplicationId:@"lnaM8pzMqf69U898rdhO9k5As1YJbM9GMte19R3b" clientKey:@"bmCrCgflMgH0xBXOr6ojpuCP0snRNucu1cykyiJj"];
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
     // Register for push notifications
-    // [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound];
+    [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound];
     
     // Reset app icon badge
     if (application.applicationIconBadgeNumber > 0) {

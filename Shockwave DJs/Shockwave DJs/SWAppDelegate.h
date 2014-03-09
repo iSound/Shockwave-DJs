@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Tech Genius. All rights reserved.
 //
 
+#import <Parse/Parse.h>
+
 #import "ECSlidingViewController.h"
 
 #import "SWHomeViewController.h"
