@@ -14,6 +14,7 @@
 		172408B018C3C7390000BFA1 /* SWTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 172408AF18C3C7390000BFA1 /* SWTableViewController.m */; };
 		172408B918C3D0A80000BFA1 /* menuBackground.png in Resources */ = {isa = PBXBuildFile; fileRef = 172408B718C3D0A80000BFA1 /* menuBackground.png */; };
 		172408BA18C3D0A80000BFA1 /* menuBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 172408B818C3D0A80000BFA1 /* menuBackground@2x.png */; };
+		172D129118CC0FBD00C71A0A /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 172D129018CC0FBD00C71A0A /* iAd.framework */; };
 		172FAF7518CBFD7300C39E0F /* ChatCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 172FAF7418CBFD7300C39E0F /* ChatCell.xib */; };
 		172FAF7718CC04DC00C39E0F /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 172FAF7618CC04DC00C39E0F /* Parse.framework */; };
 		172FAF7D18CC055100C39E0F /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 172FAF7C18CC055100C39E0F /* MobileCoreServices.framework */; };
@@ -58,6 +59,7 @@
 		172408AF18C3C7390000BFA1 /* SWTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTableViewController.m; sourceTree = "<group>"; };
 		172408B718C3D0A80000BFA1 /* menuBackground.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = menuBackground.png; sourceTree = "<group>"; };
 		172408B818C3D0A80000BFA1 /* menuBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menuBackground@2x.png"; sourceTree = "<group>"; };
+		172D129018CC0FBD00C71A0A /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		172FAF7418CBFD7300C39E0F /* ChatCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatCell.xib; sourceTree = "<group>"; };
 		172FAF7618CC04DC00C39E0F /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
 		172FAF7818CC052400C39E0F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
@@ -94,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				172D129118CC0FBD00C71A0A /* iAd.framework in Frameworks */,
 				172FAF7F18CC055A00C39E0F /* SystemConfiguration.framework in Frameworks */,
 				172FAF7D18CC055100C39E0F /* MobileCoreServices.framework in Frameworks */,
 				1731C19118C1741800561FAF /* CoreGraphics.framework in Frameworks */,
@@ -158,6 +161,7 @@
 		1731C18D18C1741800561FAF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				172D129018CC0FBD00C71A0A /* iAd.framework */,
 				172FAF7E18CC055A00C39E0F /* SystemConfiguration.framework */,
 				172FAF7C18CC055100C39E0F /* MobileCoreServices.framework */,
 				172FAF7A18CC054100C39E0F /* CoreLocation.framework */,

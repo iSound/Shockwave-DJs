@@ -63,10 +63,9 @@
     }
     
     /*
-    for (int i = 0; i < 10; i++) {
+    for (int i = 0; i < 1000; i++) {
         PFObject *object = [PFObject objectWithClassName:@"chat"];
         object[@"content"] = @"Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.";
-        object[@"datestamp"] = [NSDate date];
         object[@"userName"] = @"DJ AMatterFact";
         [object saveInBackground];
     }*/
@@ -90,7 +89,6 @@
 }
 
 - (void)refresh {
-    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     PFQuery *query = [PFQuery queryWithClassName:@"chat"];
     query.limit = 1000;
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
@@ -103,8 +101,8 @@
                 [chatArray addObject:object];
             }
             [chatArray sortUsingComparator:^NSComparisonResult(id dict1, id dict2) {
-                NSDate *date1 = [(PFObject *)dict1 objectForKey:@"datestamp"];
-                NSDate *date2 = [(PFObject *)dict2 objectForKey:@"datestamp"];
+                NSDate *date1 = [(PFObject *)dict1 createdAt];
+                NSDate *date2 = [(PFObject *)dict2 createdAt];
                 return [date1 compare:date2];
             }];
             [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
@@ -114,7 +112,6 @@
         [refreshTimer invalidate];
         refreshTimer = nil;
         refreshTimer = [NSTimer scheduledTimerWithTimeInterval:15.0 target:self selector:@selector(refresh) userInfo:nil repeats:NO];
-        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     }];
 }
 
@@ -215,9 +212,9 @@
     
     UILabel *userLabel = (UILabel *)[cell viewWithTag:2];
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
-    [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+    [dateFormatter setDateStyle:NSDateFormatterShortStyle];
     [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
-    userLabel.text = [NSString stringWithFormat:@"%@ - %@", [dateFormatter stringFromDate:object[@"datestamp"]], object[@"userName"]];
+    userLabel.text = [NSString stringWithFormat:@"%@ - %@", [dateFormatter stringFromDate:[object createdAt]], object[@"userName"]];
     [userLabel sizeToFit];
     
     return cell;

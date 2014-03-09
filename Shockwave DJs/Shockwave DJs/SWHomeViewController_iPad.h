@@ -6,8 +6,12 @@
 //  Copyright (c) 2014 Tech Genius. All rights reserved.
 //
 
+#import <iAd/iAd.h>
+
 #import "SWTableViewController.h"
 
-@interface SWHomeViewController_iPad : SWTableViewController
+@interface SWHomeViewController_iPad : SWTableViewController <ADBannerViewDelegate> {
+    ADBannerView *iAd;
+}
 
 @end
