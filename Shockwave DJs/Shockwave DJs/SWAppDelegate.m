@@ -22,7 +22,7 @@
     [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
     
     // Register for push notifications
-    [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound];
+    // [application registerForRemoteNotificationTypes:UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeAlert | UIRemoteNotificationTypeSound];
     
     // Reset app icon badge
     if (application.applicationIconBadgeNumber > 0) {
