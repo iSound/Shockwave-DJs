@@ -51,20 +51,21 @@
     
     self.navigationController.toolbar.barStyle = UIBarStyleBlack;
     self.toolbarItems = @[[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil], [[UIBarButtonItem alloc] initWithCustomView:messageBox], [[UIBarButtonItem alloc] initWithTitle:@"Send" style:UIBarButtonItemStyleDone target:self action:nil]];
-    
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(liftToolbarWhenKeybordAppears:) name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(returnToolbarToInitialposition:) name:UIKeyboardWillHideNotification object:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated {
     self.navigationController.navigationBarHidden = NO;
     self.navigationController.toolbarHidden = NO;
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(liftToolbarWhenKeybordAppears:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(returnToolbarToInitialposition:) name:UIKeyboardWillHideNotification object:nil];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
     self.navigationController.navigationBarHidden = YES;
     self.navigationController.toolbarHidden = YES;
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
