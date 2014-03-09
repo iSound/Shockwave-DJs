@@ -44,6 +44,25 @@
     [self.navigationController.toolbar setBackgroundImage:[UIImage imageWithCGImage:imageRef] forToolbarPosition:UIBarPositionBottom barMetrics:UIBarMetricsDefault];
     CGImageRelease(imageRef);
     
+    // Username
+    // Get username
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    NSString *PREusername = [defaults objectForKey:@"chat_name"];
+    NSString *FINALusername = [PREusername stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSString *checkIfDJ = [[FINALusername lowercaseString] stringByReplacingOccurrencesOfString:@" " withString:@""];
+    if ([PFUser currentUser]) {
+        if ([FINALusername isEqualToString:@""] || [FINALusername length] <= 0) {
+            FINALusername = [NSString stringWithFormat:@"%@", [UIDevice currentDevice].name];
+        }
+    } else {
+        if ([FINALusername isEqualToString:@""] || [FINALusername length] <= 0 || [checkIfDJ isEqualToString:@"djamatterfact"] || [checkIfDJ isEqualToString:@"djunknown"] || [checkIfDJ isEqualToString:@"djbloodshot"] || [checkIfDJ isEqualToString:@"djlovell"] || [checkIfDJ isEqualToString:@"system"]) {
+            FINALusername = [NSString stringWithFormat:@"%@", [UIDevice currentDevice].name];
+        }
+    }
+    [defaults setObject:FINALusername forKey:@"chat_name"];
+    [defaults synchronize];
+    username = FINALusername;
+    
     messageBox = [[UITextField alloc] initWithFrame:CGRectMake(0, 0, 213, 25)];
     if ([messageBox respondsToSelector:@selector(tintColor)]) {
         messageBox.tintColor = [UIColor whiteColor];
@@ -53,13 +72,13 @@
     messageBox.textColor = [UIColor whiteColor];
     messageBox.returnKeyType = UIReturnKeySend;
     // messageBox.borderStyle = UITextBorderStyleRoundedRect;
-    messageBox.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"<#string#>" attributes:@{NSForegroundColorAttributeName:[UIColor lightTextColor]}];
+    messageBox.attributedPlaceholder = [[NSAttributedString alloc] initWithString:username attributes:@{NSForegroundColorAttributeName:[UIColor lightTextColor]}];
     
     self.navigationController.toolbar.barStyle = UIBarStyleBlack;
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        self.toolbarItems = @[[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil], [[UIBarButtonItem alloc] initWithCustomView:messageBox], [[UIBarButtonItem alloc] initWithTitle:@"Send" style:UIBarButtonItemStyleDone target:self action:nil], [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil]];
+        self.toolbarItems = @[[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil], [[UIBarButtonItem alloc] initWithCustomView:messageBox], [[UIBarButtonItem alloc] initWithTitle:@"Send" style:UIBarButtonItemStyleDone target:self action:@selector(submitMessage)], [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil]];
     } else {
-        self.toolbarItems = @[[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil], [[UIBarButtonItem alloc] initWithCustomView:messageBox], [[UIBarButtonItem alloc] initWithTitle:@"Send" style:UIBarButtonItemStyleDone target:self action:nil]];
+        self.toolbarItems = @[[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil], [[UIBarButtonItem alloc] initWithCustomView:messageBox], [[UIBarButtonItem alloc] initWithTitle:@"Send" style:UIBarButtonItemStyleDone target:self action:@selector(submitMessage)]];
     }
     
     /*
@@ -107,7 +126,9 @@
             }];
             [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
             NSIndexPath *ipath = [NSIndexPath indexPathForRow:[chatArray count]-1 inSection:0];
-            [self.tableView scrollToRowAtIndexPath:ipath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+            if ([chatArray count] > 0) {
+                [self.tableView scrollToRowAtIndexPath:ipath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+            }
         }
         [refreshTimer invalidate];
         refreshTimer = nil;
@@ -146,10 +167,10 @@
     [UIView setAnimationCurve:animationCurve];
     if (UIDeviceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation])) {
         [self.navigationController.toolbar setFrame:CGRectMake(self.navigationController.toolbar.frame.origin.x, self.navigationController.toolbar.frame.origin.y - keyboardFrame.size.width, self.navigationController.toolbar.frame.size.width, self.navigationController.toolbar.frame.size.height)];
-        [self.tableView setFrame:CGRectMake(0, 0, 320, self.navigationController.view.frame.size.height - keyboardFrame.size.width)];
+        [self.tableView setFrame:CGRectMake(0, self.tableView.frame.origin.y, 320, self.navigationController.view.frame.size.height - keyboardFrame.size.width)];
     } else {
         [self.navigationController.toolbar setFrame:CGRectMake(self.navigationController.toolbar.frame.origin.x, self.navigationController.toolbar.frame.origin.y - keyboardFrame.size.height, self.navigationController.toolbar.frame.size.width, self.navigationController.toolbar.frame.size.height)];
-        [self.tableView setFrame:CGRectMake(0, 0, 320, self.navigationController.view.frame.size.height - keyboardFrame.size.height)];
+        [self.tableView setFrame:CGRectMake(0, self.tableView.frame.origin.y, 320, self.navigationController.view.frame.size.height - keyboardFrame.size.height)];
     }
     [UIView commitAnimations];
     // NSIndexPath *ipath = [NSIndexPath indexPathForRow:[chatArray count]-1 inSection:0];
@@ -174,10 +195,23 @@
     } else {
         [self.navigationController.toolbar setFrame:CGRectMake(self.navigationController.toolbar.frame.origin.x, self.navigationController.toolbar.frame.origin.y + keyboardFrame.size.height, self.navigationController.toolbar.frame.size.width, self.navigationController.toolbar.frame.size.height)];
     }
-    [self.tableView setFrame:CGRectMake(0, 0, 320, self.navigationController.view.frame.size.height)];
+    [self.tableView setFrame:CGRectMake(0, self.tableView.frame.origin.y, 320, self.navigationController.view.frame.size.height)];
     [UIView commitAnimations];
     // NSIndexPath *ipath = [NSIndexPath indexPathForRow:[chatArray count]-1 inSection:0];
     // [self.tableView scrollToRowAtIndexPath:ipath atScrollPosition:UITableViewScrollPositionTop animated:YES];
+}
+
+- (void)submitMessage {
+    [messageBox endEditing:self.editing];
+    PFObject *object = [PFObject objectWithClassName:@"chat"];
+    object[@"content"] = messageBox.text;
+    object[@"userName"] = username;
+    [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        if (!error) {
+            messageBox.text = @"";
+            [self refresh];
+        }
+    }];
 }
 
 #pragma mark - Table view data source

@@ -11,6 +11,8 @@
 #import "SWTableViewController.h"
 
 @interface SWChatViewController : SWTableViewController {
+    NSString *username;
+    
     NSMutableArray *chatArray;
     
     UITextField *messageBox;
@@ -21,5 +23,6 @@
 - (void)refresh;
 - (void)liftToolbarWhenKeybordAppears:(NSNotification *)aNotification;
 - (void)returnToolbarToInitialposition:(NSNotification *)aNotification;
+- (void)submitMessage;
 
 @end
