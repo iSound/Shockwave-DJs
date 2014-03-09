@@ -9,6 +9,7 @@
 #import "SWTopTableViewController.h"
 
 #import "SWMenuViewController.h"
+#import "SWChatViewController.h"
 
 @interface SWTopTableViewController ()
 
