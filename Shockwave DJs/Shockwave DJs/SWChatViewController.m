@@ -24,6 +24,12 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.tableView.backgroundColor = [UIColor viewFlipsideBackgroundColor];
+    self.tableView.indicatorStyle = UIScrollViewIndicatorStyleWhite;
+    
+    self.tableView.separatorColor = [UIColor clearColor];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    
 	self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
         CGImageRef imageRef = CGImageCreateWithImageInRect([UIImage imageNamed:@"menuBackground"].CGImage, CGRectMake(0, 1024 - self.navigationController.view.frame.size.height, 320, 64));
@@ -50,7 +56,11 @@
     messageBox.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"<#string#>" attributes:@{NSForegroundColorAttributeName:[UIColor lightTextColor]}];
     
     self.navigationController.toolbar.barStyle = UIBarStyleBlack;
-    self.toolbarItems = @[[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil], [[UIBarButtonItem alloc] initWithCustomView:messageBox], [[UIBarButtonItem alloc] initWithTitle:@"Send" style:UIBarButtonItemStyleDone target:self action:nil]];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        self.toolbarItems = @[[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil], [[UIBarButtonItem alloc] initWithCustomView:messageBox], [[UIBarButtonItem alloc] initWithTitle:@"Send" style:UIBarButtonItemStyleDone target:self action:nil], [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil]];
+    } else {
+        self.toolbarItems = @[[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil], [[UIBarButtonItem alloc] initWithCustomView:messageBox], [[UIBarButtonItem alloc] initWithTitle:@"Send" style:UIBarButtonItemStyleDone target:self action:nil]];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -124,6 +134,42 @@
         [self.navigationController.toolbar setFrame:CGRectMake(self.navigationController.toolbar.frame.origin.x, self.navigationController.toolbar.frame.origin.y + keyboardFrame.size.height, self.navigationController.toolbar.frame.size.width, self.navigationController.toolbar.frame.size.height)];
     }
     [UIView commitAnimations];
+}
+
+#pragma mark - Table view data source
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 88;
+}
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    // Return the number of sections.
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    // Return the number of rows in the section.
+    return self.navigationController.view.frame.size.height/44;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"ChatListItem"];
+    if (cell == nil) {
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"ChatCell" owner:self options:nil];
+        cell = (UITableViewCell *)[nib objectAtIndex:0];
+    }
+    // Configure the cell...
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    UITextView *textLabel = (UITextView *)[cell viewWithTag:1];
+    
+    UILabel *userLabel = (UILabel *)[cell viewWithTag:2];
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateStyle:NSDateFormatterMediumStyle];
+    [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+    userLabel.text = [NSString stringWithFormat:@"%@ - %@", [dateFormatter stringFromDate:[NSDate date]], @"<#string#>"];
+    [userLabel sizeToFit];
+    
+    return cell;
 }
 
 @end
