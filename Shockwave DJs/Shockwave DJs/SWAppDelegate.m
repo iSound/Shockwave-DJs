@@ -54,6 +54,10 @@
         
         [slidingController setAnchorRightRevealAmount:200.0f];
         
+        SWChatViewController *chat = [[SWChatViewController alloc] init];
+        UINavigationController *chatNavController = [[UINavigationController alloc] initWithRootViewController:chat];
+        slidingController.underRightViewController = chatNavController;
+        
         self.window.rootViewController = slidingController;
     }
     
