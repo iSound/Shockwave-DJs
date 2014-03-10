@@ -26,6 +26,12 @@
     [super viewDidLoad];
     
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
+    if ([self.navigationController.navigationBar respondsToSelector:@selector(setBarTintColor:)]) {
+        self.navigationController.navigationBar.barTintColor = [UIColor colorWithRed:0.0f green:0.0f blue:0.25f alpha:1.0f];
+        self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    } else {
+        self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.0f green:0.0f blue:0.25f alpha:1.0f];
+    }
     self.navigationController.navigationBar.translucent = YES;
     
     UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
@@ -101,7 +107,7 @@
                         NSDate *date2 = [(PFObject *)dict2 objectForKey:@"mixDate"];
                         return [date2 compare:date1];
                     }];
-                    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:UITableViewRowAnimationAutomatic];
+                    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
                     
                     [self.refreshControl endRefreshing];
                 }];
@@ -114,13 +120,11 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    return 3;
+    return 2;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.section == 0) {
-        return [super tableView:tableView heightForRowAtIndexPath:indexPath];
-    } else if (indexPath.section == 2) {
+    if (indexPath.section == 1) {
         return iAd.frame.size.height;
     } else {
         return [super tableView:tableView heightForRowAtIndexPath:indexPath];
@@ -129,7 +133,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    if (section == 1) {
+    if (section == 0) {
         return [feedContent count];
     } else {
         return 1;
@@ -140,13 +144,10 @@
     static NSString *CellIdentifier = @"Cell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleValue1 reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     // Configure the cell...
     if (indexPath.section == 0) {
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        cell.textLabel.text = @"Banners";
-    } else if (indexPath.section == 1) {
         PFObject *object = [feedContent objectAtIndex:indexPath.row];
         
         cell.textLabel.text = object[@"name"];
@@ -168,7 +169,7 @@
             [cell setNeedsLayout]; 
         }];
         request = nil;
-    } else if (indexPath.section == 2) {
+    } else if (indexPath.section == 1) {
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         cell.textLabel.text = @"";
     }
