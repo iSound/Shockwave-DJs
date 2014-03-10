@@ -150,7 +150,7 @@
         PFObject *object = [feedContent objectAtIndex:indexPath.row];
         
         cell.textLabel.text = object[@"name"];
-        cell.detailTextLabel.text = @"<#string#>";
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"▶ %d", [[object objectForKey:@"plays"] intValue]];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         
         // Async loading of posters
