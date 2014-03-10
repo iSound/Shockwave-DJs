@@ -162,8 +162,8 @@
             cell.imageView.image = nil;
             if (!error) {
                 cell.imageView.image = [UIImage imageWithData:data];
-                cell.imageView.layer.cornerRadius = cell.frame.size.height/2;
-                cell.imageView.layer.masksToBounds = YES;
+                // cell.imageView.layer.cornerRadius = cell.frame.size.height/2;
+                // cell.imageView.layer.masksToBounds = YES;
             }
             [cell setNeedsLayout];
         }];
