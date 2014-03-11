@@ -150,7 +150,7 @@
         [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithCGImage:imageRef] forBarMetrics:UIBarMetricsDefault];
         CGImageRelease(imageRef);
     } else {
-        CGImageRef imageRef = CGImageCreateWithImageInRect([UIImage imageNamed:@"menuBackground"].CGImage, CGRectMake(0, 1024 - self.navigationController.view.frame.size.height, 320, 64));
+        CGImageRef imageRef = CGImageCreateWithImageInRect([UIImage imageNamed:@"menuBackground"].CGImage, CGRectMake(0, 1024 - self.navigationController.view.frame.size.height, 320, 44));
         [self.navigationController.navigationBar setBackgroundImage:[UIImage imageWithCGImage:imageRef] forBarMetrics:UIBarMetricsDefault];
         CGImageRelease(imageRef);
     }
