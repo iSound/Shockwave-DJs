@@ -287,6 +287,8 @@
     textLabel.text = object[@"content"];
     
     UILabel *userLabel = (UILabel *)[cell viewWithTag:2];
+    userLabel.adjustsFontSizeToFitWidth = YES;
+    userLabel.adjustsLetterSpacingToFitWidth = YES;
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateStyle:NSDateFormatterShortStyle];
     [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
