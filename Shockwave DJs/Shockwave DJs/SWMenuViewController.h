@@ -9,12 +9,13 @@
 #import <MessageUI/MessageUI.h>
 
 #import "SWHomeViewController.h"
+#import "SWHomeViewController_iPad.h"
 
 #import "SWChatViewController.h"
 
 #import "SWTableViewController.h"
 
-@interface SWMenuViewController : SWTableViewController {
+@interface SWMenuViewController : SWTableViewController <MFMailComposeViewControllerDelegate> {
     NSArray *section0;
     NSArray *section1;
     NSArray *section2;

@@ -156,7 +156,10 @@
 
 - (void)home {
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        SWHomeViewController_iPad *home = [[SWHomeViewController_iPad alloc] init];
+        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:home];
         
+        self.splitViewController.viewControllers = @[self, navController];
     } else {
         SWHomeViewController *home = [[SWHomeViewController alloc] init];
         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:home];
@@ -183,27 +186,77 @@
 }
 
 - (void)facebook {
-    
+    // Check if Facebook app is installed
+    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"fb://"]]) {
+        // Open Facebook app to our page
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"fb://profile/423286087746906"]];
+    } else {
+        // Open safari to our facebook page
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://www.facebook.com/pages/Shockwave-DJs/423286087746906"]];
+    }
 }
 
 - (void)twitter {
-    
+    // Check if Twitter app is installed
+    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"twitter://"]]) {
+        // Open Twitter app to our page
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"twitter://user?screen_name=ShockWaveDJs"]];
+    } else {
+        // Open safari to our twitter page
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://twitter.com/ShockWaveDJs"]];
+    }
 }
 
 - (void)instagram {
-    
+    // Check if Instagram app is installed
+    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"instagram://"]]) {
+        // Open Instagram app to our page
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"instagram://user?username=shockwavedjs"]];
+    } else {
+        // Open safari to our instagram page
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://instagram.com/shockwavedjs?ref=badge"]];
+    }
 }
 
 - (void)google {
-    
+    // Check if Google+ app is installed
+    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"gplus://"]]) {
+        // Open Google+ app to our page
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"gplus://plus.google.com/101251117847008761406/posts"]];
+    } else {
+        // Open safari to our Google+ page
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"https://plus.google.com/101251117847008761406/posts"]];
+    }
 }
 
 - (void)website {
-    
+    // Open safari to our website
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"http://shockwavedjs.clanteam.com"]];
 }
 
 - (void)email {
-    
+    // Email
+    if ([MFMailComposeViewController canSendMail]) {
+        // Init
+        MFMailComposeViewController *emailer = [[MFMailComposeViewController alloc] init];
+        // Set the delegate to self
+        emailer.mailComposeDelegate = self;
+        // Set the title
+        emailer.title = @"Email Us";
+        // Set the to field
+        [emailer setToRecipients:[NSArray arrayWithObjects:@"shockwavedjs.radiobroadcast@gmail.com", nil]];
+        // present controller
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            self.splitViewController.viewControllers = @[self, emailer];
+        } else {
+            [self.slidingViewController setTopViewController:emailer];
+            [self.slidingViewController resetTopView];
+        }
+    }
+}
+
+- (void)mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error {
+    [self home];
 }
 
 - (void)chat {
