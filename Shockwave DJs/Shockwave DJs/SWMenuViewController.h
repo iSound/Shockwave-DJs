@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Tech Genius. All rights reserved.
 //
 
+#import <MessageUI/MessageUI.h>
+
 #import "SWHomeViewController.h"
 
 #import "SWChatViewController.h"

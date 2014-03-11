@@ -34,6 +34,7 @@
 		1754BE1718CF7689003B504E /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1754BE1618CF7689003B504E /* MediaPlayer.framework */; };
 		1754BE1918CF768F003B504E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1754BE1818CF768F003B504E /* AVFoundation.framework */; };
 		1754BE1C18CF776C003B504E /* SWAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1754BE1B18CF776C003B504E /* SWAudioPlayer.m */; };
+		1754BE1E18CFA427003B504E /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1754BE1D18CFA427003B504E /* MessageUI.framework */; };
 		176D98FF18CC2AE6006D33D9 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 176D98FE18CC2AE6006D33D9 /* Settings.bundle */; };
 		17ADDF4B18C5C48C00128E2B /* navBar_iOS7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17ADDF4918C5C48C00128E2B /* navBar_iOS7@2x.png */; };
 		17ADDF4C18C5C48C00128E2B /* navBar_iOS7.png in Resources */ = {isa = PBXBuildFile; fileRef = 17ADDF4A18C5C48C00128E2B /* navBar_iOS7.png */; };
@@ -91,6 +92,7 @@
 		1754BE1818CF768F003B504E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		1754BE1A18CF776C003B504E /* SWAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWAudioPlayer.h; sourceTree = "<group>"; };
 		1754BE1B18CF776C003B504E /* SWAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWAudioPlayer.m; sourceTree = "<group>"; };
+		1754BE1D18CFA427003B504E /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		176D98FE18CC2AE6006D33D9 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		17ADDF4918C5C48C00128E2B /* navBar_iOS7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navBar_iOS7@2x.png"; sourceTree = "<group>"; };
 		17ADDF4A18C5C48C00128E2B /* navBar_iOS7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navBar_iOS7.png; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1754BE1E18CFA427003B504E /* MessageUI.framework in Frameworks */,
 				1754BE1918CF768F003B504E /* AVFoundation.framework in Frameworks */,
 				1754BE1718CF7689003B504E /* MediaPlayer.framework in Frameworks */,
 				172D129118CC0FBD00C71A0A /* iAd.framework in Frameworks */,
@@ -172,6 +175,7 @@
 		1731C18D18C1741800561FAF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1754BE1D18CFA427003B504E /* MessageUI.framework */,
 				1754BE1818CF768F003B504E /* AVFoundation.framework */,
 				1754BE1618CF7689003B504E /* MediaPlayer.framework */,
 				172D129018CC0FBD00C71A0A /* iAd.framework */,
