@@ -22,6 +22,11 @@
     return [self initWithContentURL:[NSURL URLWithString:[object objectForKey:@"url"]]];
 }
 
+- (id)initWithContentURL:(NSURL *)url {
+    self.controlStyle = MPMovieControlStyleEmbedded;
+    return [super initWithContentURL:url];
+}
+
 - (void)play:(PFObject *)object {
     [super play];
     [self setNowPlaying:object];
