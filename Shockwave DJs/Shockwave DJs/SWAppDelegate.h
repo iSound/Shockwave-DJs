@@ -21,4 +21,6 @@
 
 @property (strong, nonatomic) UISplitViewController *splitViewController;
 
+@property (strong, nonatomic) MPMoviePlayerController *audioPlayer;
+
 @end

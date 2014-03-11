@@ -31,6 +31,9 @@
 		1731C1BB18C1741900561FAF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1731C1B918C1741900561FAF /* InfoPlist.strings */; };
 		1731C1BD18C1741900561FAF /* Shockwave_DJsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1731C1BC18C1741900561FAF /* Shockwave_DJsTests.m */; };
 		1734CA4118C409750051009C /* SWTopTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1734CA4018C409750051009C /* SWTopTableViewController.m */; };
+		1754BE1718CF7689003B504E /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1754BE1618CF7689003B504E /* MediaPlayer.framework */; };
+		1754BE1918CF768F003B504E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1754BE1818CF768F003B504E /* AVFoundation.framework */; };
+		1754BE1C18CF776C003B504E /* SWAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1754BE1B18CF776C003B504E /* SWAudioPlayer.m */; };
 		176D98FF18CC2AE6006D33D9 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 176D98FE18CC2AE6006D33D9 /* Settings.bundle */; };
 		17ADDF4B18C5C48C00128E2B /* navBar_iOS7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17ADDF4918C5C48C00128E2B /* navBar_iOS7@2x.png */; };
 		17ADDF4C18C5C48C00128E2B /* navBar_iOS7.png in Resources */ = {isa = PBXBuildFile; fileRef = 17ADDF4A18C5C48C00128E2B /* navBar_iOS7.png */; };
@@ -84,6 +87,10 @@
 		1731C1BC18C1741900561FAF /* Shockwave_DJsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Shockwave_DJsTests.m; sourceTree = "<group>"; };
 		1734CA3F18C409750051009C /* SWTopTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTopTableViewController.h; sourceTree = "<group>"; };
 		1734CA4018C409750051009C /* SWTopTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTopTableViewController.m; sourceTree = "<group>"; };
+		1754BE1618CF7689003B504E /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		1754BE1818CF768F003B504E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		1754BE1A18CF776C003B504E /* SWAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWAudioPlayer.h; sourceTree = "<group>"; };
+		1754BE1B18CF776C003B504E /* SWAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWAudioPlayer.m; sourceTree = "<group>"; };
 		176D98FE18CC2AE6006D33D9 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		17ADDF4918C5C48C00128E2B /* navBar_iOS7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navBar_iOS7@2x.png"; sourceTree = "<group>"; };
 		17ADDF4A18C5C48C00128E2B /* navBar_iOS7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navBar_iOS7.png; sourceTree = "<group>"; };
@@ -98,6 +105,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1754BE1918CF768F003B504E /* AVFoundation.framework in Frameworks */,
+				1754BE1718CF7689003B504E /* MediaPlayer.framework in Frameworks */,
 				172D129118CC0FBD00C71A0A /* iAd.framework in Frameworks */,
 				172FAF7F18CC055A00C39E0F /* SystemConfiguration.framework in Frameworks */,
 				172FAF7D18CC055100C39E0F /* MobileCoreServices.framework in Frameworks */,
@@ -163,6 +172,8 @@
 		1731C18D18C1741800561FAF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1754BE1818CF768F003B504E /* AVFoundation.framework */,
+				1754BE1618CF7689003B504E /* MediaPlayer.framework */,
 				172D129018CC0FBD00C71A0A /* iAd.framework */,
 				172FAF7E18CC055A00C39E0F /* SystemConfiguration.framework */,
 				172FAF7C18CC055100C39E0F /* MobileCoreServices.framework */,
@@ -182,6 +193,8 @@
 			children = (
 				1731C19D18C1741800561FAF /* SWAppDelegate.h */,
 				1731C19E18C1741800561FAF /* SWAppDelegate.m */,
+				1754BE1A18CF776C003B504E /* SWAudioPlayer.h */,
+				1754BE1B18CF776C003B504E /* SWAudioPlayer.m */,
 				172408AE18C3C7390000BFA1 /* SWTableViewController.h */,
 				172408AF18C3C7390000BFA1 /* SWTableViewController.m */,
 				1734CA3F18C409750051009C /* SWTopTableViewController.h */,
@@ -363,6 +376,7 @@
 				1731C19B18C1741800561FAF /* main.m in Sources */,
 				172408B018C3C7390000BFA1 /* SWTableViewController.m in Sources */,
 				172408A818C3B9960000BFA1 /* SWMenuViewController.m in Sources */,
+				1754BE1C18CF776C003B504E /* SWAudioPlayer.m in Sources */,
 				1731C19F18C1741800561FAF /* SWAppDelegate.m in Sources */,
 				17ADDF4F18C5C5AA00128E2B /* SWChatViewController.m in Sources */,
 				1734CA4118C409750051009C /* SWTopTableViewController.m in Sources */,
