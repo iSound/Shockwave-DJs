@@ -61,6 +61,7 @@
     [self.refreshControl beginRefreshing];
     PFQuery *query1 = [PFQuery queryWithClassName:@"DJamatterfactMixes"];
     query1.limit = 1000;
+    [query1 whereKey:@"url" containsString:@"http://k007.kiwi6.com/hotlink/"];
     [query1 findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         feedContent = [[NSMutableArray alloc] init];
         for (PFObject *object in objects) {
@@ -74,6 +75,7 @@
         
         PFQuery *query2 = [PFQuery queryWithClassName:@"DJunknownMixes"];
         query2.limit = 1000;
+        [query2 whereKey:@"url" containsString:@"http://k007.kiwi6.com/hotlink/"];
         [query2 findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
             for (PFObject *object in objects) {
                 [feedContent addObject:object];
@@ -86,6 +88,7 @@
             
             PFQuery *query3 = [PFQuery queryWithClassName:@"DJbloodshotMixes"];
             query3.limit = 1000;
+            [query3 whereKey:@"url" containsString:@"http://k007.kiwi6.com/hotlink/"];
             [query3 findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
                 for (PFObject *object in objects) {
                     [feedContent addObject:object];
@@ -98,6 +101,7 @@
                 
                 PFQuery *query4 = [PFQuery queryWithClassName:@"DJlovellMixes"];
                 query4.limit = 1000;
+                [query4 whereKey:@"url" containsString:@"http://k007.kiwi6.com/hotlink/"];
                 [query4 findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
                     for (PFObject *object in objects) {
                         [feedContent addObject:object];
@@ -108,7 +112,6 @@
                         return [date2 compare:date1];
                     }];
                     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:0] withRowAnimation:UITableViewRowAnimationAutomatic];
-                    
                     [self.refreshControl endRefreshing];
                 }];
             }];
@@ -150,8 +153,14 @@
     if (indexPath.section == 0) {
         PFObject *object = [feedContent objectAtIndex:indexPath.row];
         
+        cell.textLabel.adjustsFontSizeToFitWidth = YES;
+        cell.textLabel.adjustsLetterSpacingToFitWidth = YES;
         cell.textLabel.text = object[@"name"];
+        
+        cell.detailTextLabel.adjustsFontSizeToFitWidth = NO;
+        cell.detailTextLabel.adjustsLetterSpacingToFitWidth = NO;
         cell.detailTextLabel.text = [NSString stringWithFormat:@"▶ %d", [[object objectForKey:@"plays"] intValue]];
+        
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         
         // Async loading of posters
