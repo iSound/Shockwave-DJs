@@ -105,6 +105,10 @@
     self.navigationController.toolbarHidden = YES;
     
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+    if ([adminOptions isVisible]) {
+        [adminOptions dismissWithClickedButtonIndex:[adminOptions cancelButtonIndex] animated:YES];
+    }
 }
 
 - (void)refresh {
