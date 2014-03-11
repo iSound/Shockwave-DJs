@@ -35,6 +35,7 @@
 		1754BE1918CF768F003B504E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1754BE1818CF768F003B504E /* AVFoundation.framework */; };
 		1754BE1C18CF776C003B504E /* SWAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1754BE1B18CF776C003B504E /* SWAudioPlayer.m */; };
 		1754BE1E18CFA427003B504E /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1754BE1D18CFA427003B504E /* MessageUI.framework */; };
+		1754BE2018CFABBB003B504E /* ChatCell_iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1754BE1F18CFABBB003B504E /* ChatCell_iPad.xib */; };
 		176D98FF18CC2AE6006D33D9 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 176D98FE18CC2AE6006D33D9 /* Settings.bundle */; };
 		17ADDF4B18C5C48C00128E2B /* navBar_iOS7@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17ADDF4918C5C48C00128E2B /* navBar_iOS7@2x.png */; };
 		17ADDF4C18C5C48C00128E2B /* navBar_iOS7.png in Resources */ = {isa = PBXBuildFile; fileRef = 17ADDF4A18C5C48C00128E2B /* navBar_iOS7.png */; };
@@ -93,6 +94,7 @@
 		1754BE1A18CF776C003B504E /* SWAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWAudioPlayer.h; sourceTree = "<group>"; };
 		1754BE1B18CF776C003B504E /* SWAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWAudioPlayer.m; sourceTree = "<group>"; };
 		1754BE1D18CFA427003B504E /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		1754BE1F18CFABBB003B504E /* ChatCell_iPad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ChatCell_iPad.xib; sourceTree = "<group>"; };
 		176D98FE18CC2AE6006D33D9 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		17ADDF4918C5C48C00128E2B /* navBar_iOS7@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "navBar_iOS7@2x.png"; sourceTree = "<group>"; };
 		17ADDF4A18C5C48C00128E2B /* navBar_iOS7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navBar_iOS7.png; sourceTree = "<group>"; };
@@ -220,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				172FAF7418CBFD7300C39E0F /* ChatCell.xib */,
+				1754BE1F18CFABBB003B504E /* ChatCell_iPad.xib */,
 				172408AB18C3C0710000BFA1 /* Images */,
 				1724089D18C3B4ED0000BFA1 /* ECSlidingViewController */,
 				1731C19618C1741800561FAF /* Shockwave DJs-Info.plist */,
@@ -365,6 +368,7 @@
 				172408AA18C3BEAE0000BFA1 /* Default-568h@2x.png in Resources */,
 				172408B918C3D0A80000BFA1 /* menuBackground.png in Resources */,
 				17ADDF4C18C5C48C00128E2B /* navBar_iOS7.png in Resources */,
+				1754BE2018CFABBB003B504E /* ChatCell_iPad.xib in Resources */,
 				172408BA18C3D0A80000BFA1 /* menuBackground@2x.png in Resources */,
 				17ADDF4B18C5C48C00128E2B /* navBar_iOS7@2x.png in Resources */,
 			);

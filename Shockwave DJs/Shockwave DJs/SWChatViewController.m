@@ -243,6 +243,7 @@
 
 - (IBAction)showAdminOptions:(id)sender {
     adminOptions = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Logout" otherButtonTitles:@"Clear Chat", nil];
+    adminOptions.actionSheetStyle = UIActionSheetStyleBlackTranslucent;
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         [adminOptions showFromBarButtonItem:sender animated:YES];
     } else {
@@ -269,8 +270,13 @@
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = (UITableViewCell *)[tableView dequeueReusableCellWithIdentifier:@"ChatListItem"];
     if (cell == nil) {
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"ChatCell" owner:self options:nil];
-        cell = (UITableViewCell *)[nib objectAtIndex:0];
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"ChatCell_iPad" owner:self options:nil];
+            cell = (UITableViewCell *)[nib objectAtIndex:0];
+        } else {
+            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"ChatCell" owner:self options:nil];
+            cell = (UITableViewCell *)[nib objectAtIndex:0];
+        }
     }
     // Configure the cell...
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
