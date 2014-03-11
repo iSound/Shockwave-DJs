@@ -10,6 +10,8 @@
 
 @implementation SWAppDelegate
 
+@synthesize audioPlayer = _audioPlayer;
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     if ([self.window respondsToSelector:@selector(setTintColor:)]) {

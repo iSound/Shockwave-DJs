@@ -6,8 +6,12 @@
 //  Copyright (c) 2014 Tech Genius. All rights reserved.
 //
 
+#import <AVFoundation/AVFoundation.h>
 #import <MediaPlayer/MediaPlayer.h>
+#import <Parse/Parse.h>
 
-@interface SWAudioPlayer : MPMoviePlayerController
+@interface SWAudioPlayer : MPMoviePlayerController {
+    PFObject *mixObject;
+}
 
 @end

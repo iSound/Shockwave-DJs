@@ -15,12 +15,14 @@
 #import "SWMenuViewController.h"
 #import "SWChatViewController.h"
 
+#import "SWAudioPlayer.h"
+
 @interface SWAppDelegate : UIResponder <UIApplicationDelegate, UISplitViewControllerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
 @property (strong, nonatomic) UISplitViewController *splitViewController;
 
-@property (strong, nonatomic) MPMoviePlayerController *audioPlayer;
+@property (strong, nonatomic) SWAudioPlayer *audioPlayer;
 
 @end
