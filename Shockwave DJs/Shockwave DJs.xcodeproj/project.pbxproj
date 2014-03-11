@@ -318,6 +318,14 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Tech Genius";
 				TargetAttributes = {
+					1731C18A18C1741800561FAF = {
+						DevelopmentTeam = 84PD2967AA;
+						SystemCapabilities = {
+							com.apple.DataProtection = {
+								enabled = 0;
+							};
+						};
+					};
 					1731C1AE18C1741900561FAF = {
 						TestTargetID = 1731C18A18C1741800561FAF;
 					};
@@ -501,6 +509,8 @@
 		1731C1C118C1741900561FAF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/vilisei/Apps/Shockwave-DJs/Shockwave\\ DJs",
@@ -509,6 +519,7 @@
 				GCC_PREFIX_HEADER = "Shockwave DJs/Shockwave DJs-Prefix.pch";
 				INFOPLIST_FILE = "Shockwave DJs/Shockwave DJs-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -516,6 +527,8 @@
 		1731C1C218C1741900561FAF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"/Users/vilisei/Apps/Shockwave-DJs/Shockwave\\ DJs",
@@ -524,6 +537,7 @@
 				GCC_PREFIX_HEADER = "Shockwave DJs/Shockwave DJs-Prefix.pch";
 				INFOPLIST_FILE = "Shockwave DJs/Shockwave DJs-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
