@@ -84,7 +84,7 @@
     }
     
     if ([PFUser currentUser]) {
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:[PFUser currentUser].username style:UIBarButtonItemStyleBordered target:self action:@selector(logoutUser)];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:[PFUser currentUser].username style:UIBarButtonItemStyleBordered target:self action:@selector(showAdminOptions:)];
     } else {
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Login" style:UIBarButtonItemStyleBordered target:self action:@selector(loginUser)];
     }
@@ -223,7 +223,7 @@
 
 - (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
     if ([PFUser currentUser]) {
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:[PFUser currentUser].username style:UIBarButtonItemStyleBordered target:self action:@selector(logoutUser)];
+        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:[PFUser currentUser].username style:UIBarButtonItemStyleBordered target:self action:@selector(showAdminOptions:)];
     }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -238,6 +238,15 @@
     }
     if (![PFUser currentUser]) {
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Login" style:UIBarButtonItemStyleBordered target:self action:@selector(loginUser)];
+    }
+}
+
+- (IBAction)showAdminOptions:(id)sender {
+    adminOptions = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:@"Logout" otherButtonTitles:@"Clear Chat", nil];
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        [adminOptions showFromBarButtonItem:sender animated:YES];
+    } else {
+        [adminOptions showFromToolbar:self.navigationController.toolbar];
     }
 }
 
@@ -279,6 +288,18 @@
     [userLabel sizeToFit];
     
     return cell;
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex {
+    if (buttonIndex != [actionSheet cancelButtonIndex]) {
+        if ([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:@"Clear Chat"]) {
+            // Clear chat
+        } else if (buttonIndex == [actionSheet destructiveButtonIndex]) {
+            [self logoutUser];
+        }
+        
+        [self refresh];
+    }
 }
 
 - (void)dealloc {

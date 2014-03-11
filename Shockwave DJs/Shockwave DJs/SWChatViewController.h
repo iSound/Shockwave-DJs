@@ -10,7 +10,7 @@
 
 #import "SWTableViewController.h"
 
-@interface SWChatViewController : SWTableViewController <PFLogInViewControllerDelegate> {
+@interface SWChatViewController : SWTableViewController <PFLogInViewControllerDelegate, UIActionSheetDelegate> {
     NSString *username;
     
     NSMutableArray *chatArray;
@@ -18,14 +18,17 @@
     UITextField *messageBox;
     
     NSTimer *refreshTimer;
+    
+    UIActionSheet *adminOptions;
 }
 
 - (void)refresh;
 - (void)liftToolbarWhenKeybordAppears:(NSNotification *)aNotification;
 - (void)returnToolbarToInitialposition:(NSNotification *)aNotification;
-- (void)submitMessage;
+- (IBAction)showAdminOptions:(id)sender;
 
 - (void)loginUser;
 - (void)logoutUser;
+- (void)showAdminOptions;
 
 @end
