@@ -13,7 +13,15 @@
 @interface SWAudioPlayer : MPMoviePlayerController
 
 - (id)initWithMix:(PFObject *)object;
+- (id)initWithLiveMix:(PFObject *)object;
+- (void)play:(PFObject *)object;
+- (void)pause:(PFObject *)object;
 - (void)stop:(PFObject *)object;
+- (void)prepareToPlay:(PFObject *)object;
 - (void)setNowPlaying:(PFObject *)object;
+
+- (void)updateDurationNowPlaying:(NSNotification *)notification;
+- (void)donePlayingMix:(NSNotification *)notification;
+- (void)metadataUpdate:(NSNotification *)notification;
 
 @end

@@ -95,17 +95,16 @@
 
 - (void)playRecordedMix:(NSNotification *)notification {
     self.audioPlayer = [[SWAudioPlayer alloc] initWithMix:(PFObject *)[notification object]];
-    [self.audioPlayer prepareToPlay];
-    [self.audioPlayer play];
+    [self.audioPlayer prepareToPlay:(PFObject *)[notification object]];
+    [self.audioPlayer play:(PFObject *)[notification object]];
 }
 
 - (void)pauseRecordedMix:(NSNotification *)notification {
-    [self.audioPlayer pause];
+    [self.audioPlayer pause:(PFObject *)[notification object]];
 }
 
 - (void)playLiveMix:(NSNotification *)notification {
-    // [self.audioPlayer initWithMix:<#(PFObject *)#>];
-    [self playRecordedMix:notification];
+    [self.audioPlayer initWithLiveMix:(PFObject *)[notification object]];
 }
 
 - (void)stopMix:(NSNotification *)notification {
