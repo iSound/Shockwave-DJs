@@ -14,6 +14,9 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    if ([[[UIViewController alloc] init] respondsToSelector:@selector(edgesForExtendedLayout)]) {
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
+    }
     if ([self.window respondsToSelector:@selector(setTintColor:)]) {
         // [self.window setTintColor:[UIColor blueColor]];
     }
