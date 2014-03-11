@@ -17,7 +17,7 @@
 
 #import "SWAudioPlayer.h"
 
-@interface SWAppDelegate : UIResponder <UIApplicationDelegate, UISplitViewControllerDelegate>
+@interface SWAppDelegate : UIResponder <UIApplicationDelegate, UISplitViewControllerDelegate, AVAudioPlayerDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 
