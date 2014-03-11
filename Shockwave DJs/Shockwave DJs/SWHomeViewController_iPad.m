@@ -154,7 +154,7 @@
         cell.detailTextLabel.text = [NSString stringWithFormat:@"▶ %d", [[object objectForKey:@"plays"] intValue]];
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         
-        // Async loading of posters
+        // Async loading of image
         NSURL *url = [NSURL URLWithString:[object objectForKey:@"iconURL"]];
         NSURLRequest* request = [NSURLRequest requestWithURL:url];
         url = nil;
@@ -179,6 +179,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"playRecordedMix" object:[feedContent objectAtIndex:indexPath.row]];
 }
 
 @end

@@ -206,7 +206,7 @@
     PFObject *object = [PFObject objectWithClassName:@"chat"];
     object[@"content"] = messageBox.text;
     object[@"userName"] = username;
-    [object saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+    [object saveEventually:^(BOOL succeeded, NSError *error) {
         if (!error) {
             messageBox.text = @"";
             [self refresh];

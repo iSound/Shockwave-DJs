@@ -10,8 +10,10 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import <Parse/Parse.h>
 
-@interface SWAudioPlayer : MPMoviePlayerController {
-    PFObject *mixObject;
-}
+@interface SWAudioPlayer : MPMoviePlayerController
+
+- (id)initWithMix:(PFObject *)object;
+- (void)stop:(PFObject *)object;
+- (void)setNowPlaying:(PFObject *)object;
 
 @end

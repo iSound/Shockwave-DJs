@@ -25,4 +25,9 @@
 
 @property (strong, nonatomic) SWAudioPlayer *audioPlayer;
 
+- (void)playRecordedMix:(NSNotification *)notification;
+- (void)pauseRecordedMix:(NSNotification *)notification;
+- (void)playLiveMix:(NSNotification *)notification;
+- (void)stopMix:(NSNotification *)notification;
+
 @end

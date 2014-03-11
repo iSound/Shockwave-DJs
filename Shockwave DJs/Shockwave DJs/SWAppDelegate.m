@@ -63,6 +63,12 @@
         self.window.rootViewController = slidingController;
     }
     
+    // Audio Player notifications
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playRecordedMix:) name:@"playRecordedMix" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playRecordedMix:) name:@"pauseRecordedMix" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playLiveMix:) name:@"playLiveMix" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stopMix:) name:@"stopMix" object:nil];
+    
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -73,9 +79,9 @@
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     // Store the deviceToken in the current Installation and save it to Parse.
-    // PFInstallation *currentInstallation = [PFInstallation currentInstallation];
-    // [currentInstallation setDeviceTokenFromData:deviceToken];
-    // [currentInstallation saveInBackground];
+    PFInstallation *currentInstallation = [PFInstallation currentInstallation];
+    [currentInstallation setDeviceTokenFromData:deviceToken];
+    [currentInstallation saveEventually];
 }
 
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error {
@@ -84,29 +90,27 @@
 }
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo {
-    // [PFPush handlePush:userInfo];
-}
-							
-- (void)applicationWillResignActive:(UIApplication *)application {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    [PFPush handlePush:userInfo];
 }
 
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+- (void)playRecordedMix:(NSNotification *)notification {
+    self.audioPlayer = [[SWAudioPlayer alloc] initWithMix:(PFObject *)[notification object]];
+    [self.audioPlayer prepareToPlay];
+    [self.audioPlayer play];
 }
 
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+- (void)pauseRecordedMix:(NSNotification *)notification {
+    [self.audioPlayer pause];
 }
 
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+- (void)playLiveMix:(NSNotification *)notification {
+    // [self.audioPlayer initWithMix:<#(PFObject *)#>];
+    [self playRecordedMix:notification];
 }
 
-- (void)applicationWillTerminate:(UIApplication *)application {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+- (void)stopMix:(NSNotification *)notification {
+    // Update plays
+    [self.audioPlayer stop:(PFObject *)[notification object]];
 }
 
 @end
