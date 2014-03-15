@@ -203,7 +203,7 @@
 }
 
 - (void)lovell {
-    SWDJs *dj = [[SWDJs alloc] initWithDJ:[section1 objectAtIndex:3] withColor:[UIColor blackColor]];
+    SWDJs *dj = [[SWDJs alloc] initWithDJ:[section1 objectAtIndex:3] withColor:[UIColor whiteColor]];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:dj];
     
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
