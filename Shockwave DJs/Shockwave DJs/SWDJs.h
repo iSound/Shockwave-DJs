@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Tech Genius. All rights reserved.
 //
 
+#import <Parse/Parse.h>
+
 #import "SWTopViewController.h"
 
 @interface SWDJs : SWTopViewController
@@ -13,10 +15,25 @@
 // DJ Name
 @property (nonatomic, strong) NSString *djName;
 
+// Mix class list
+@property (nonatomic, strong) NSString *mixClassList;
+
 // DJ Color
 @property (nonatomic, strong) UIColor *djColor;
 
+// Cover (same as profilePic but distorted)
+@property (nonatomic, strong) UIImageView *cover;
+
+// Cover cover (darkens the cover)
+@property (nonatomic, strong) UIView *coverCover;
+
 // Last mix icon
 @property (nonatomic, strong) UIImageView *profilePic;
+
+// Mix list
+@property (nonatomic, strong) NSMutableArray *mixList;
+
+- (id)initWithDJ:(NSString *)djName withColor:(UIColor *)djColor;
+- (void)refresh;
 
 @end
