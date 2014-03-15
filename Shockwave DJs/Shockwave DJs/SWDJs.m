@@ -60,6 +60,8 @@
     self.profilePic.layer.masksToBounds = YES;
     self.profilePic.layer.borderColor = [UIColor whiteColor].CGColor;
     self.profilePic.layer.borderWidth = 3.0f;
+    // Setup DJ Name Label
+
     // Load stuff
     [self refresh];
     

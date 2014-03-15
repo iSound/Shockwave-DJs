@@ -30,6 +30,15 @@
 // Last mix icon
 @property (nonatomic, strong) UIImageView *profilePic;
 
+// DJ Name Label
+@property (nonatomic, strong) UILabel *djNameLabel;
+
+
+// DJ Mix Amount Icon
+@property (nonatomic, strong) UIImageView *djMixAmountIcon;
+// DJ Mix Amount
+@property (nonatomic, strong) UILabel *djMixAmountLabel;
+
 // Mix list
 @property (nonatomic, strong) NSMutableArray *mixList;
 
