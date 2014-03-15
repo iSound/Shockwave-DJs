@@ -9,7 +9,6 @@
 #import <MessageUI/MessageUI.h>
 
 #import "SWHomeViewController.h"
-#import "SWHomeViewController_iPad.h"
 
 #import "SWChatViewController.h"
 

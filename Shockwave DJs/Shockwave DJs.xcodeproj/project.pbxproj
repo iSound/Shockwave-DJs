@@ -59,7 +59,6 @@
 		175A1D1A18CFE05100704587 /* ios7_spotlight_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 175A1D0B18CFE05100704587 /* ios7_spotlight_icon@2x.png */; };
 		176D98FF18CC2AE6006D33D9 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 176D98FE18CC2AE6006D33D9 /* Settings.bundle */; };
 		17ADDF4F18C5C5AA00128E2B /* SWChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17ADDF4E18C5C5AA00128E2B /* SWChatViewController.m */; };
-		17FCB57618C5579C00191CA2 /* SWHomeViewController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 17FCB57518C5579C00191CA2 /* SWHomeViewController_iPad.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,8 +137,6 @@
 		176D98FE18CC2AE6006D33D9 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		17ADDF4D18C5C5AA00128E2B /* SWChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWChatViewController.h; sourceTree = "<group>"; };
 		17ADDF4E18C5C5AA00128E2B /* SWChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWChatViewController.m; sourceTree = "<group>"; };
-		17FCB57418C5579C00191CA2 /* SWHomeViewController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWHomeViewController_iPad.h; sourceTree = "<group>"; };
-		17FCB57518C5579C00191CA2 /* SWHomeViewController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWHomeViewController_iPad.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -250,8 +247,6 @@
 				17ADDF4E18C5C5AA00128E2B /* SWChatViewController.m */,
 				172408A318C3B82A0000BFA1 /* SWHomeViewController.h */,
 				172408A418C3B82A0000BFA1 /* SWHomeViewController.m */,
-				17FCB57418C5579C00191CA2 /* SWHomeViewController_iPad.h */,
-				17FCB57518C5579C00191CA2 /* SWHomeViewController_iPad.m */,
 				1731C19518C1741800561FAF /* Supporting Files */,
 			);
 			path = "Shockwave DJs";
@@ -488,7 +483,6 @@
 				1731C19F18C1741800561FAF /* SWAppDelegate.m in Sources */,
 				17ADDF4F18C5C5AA00128E2B /* SWChatViewController.m in Sources */,
 				1734CA4118C409750051009C /* SWTopTableViewController.m in Sources */,
-				17FCB57618C5579C00191CA2 /* SWHomeViewController_iPad.m in Sources */,
 				172408A018C3B4FB0000BFA1 /* ECSlidingViewController.m in Sources */,
 				172408A518C3B82A0000BFA1 /* SWHomeViewController.m in Sources */,
 			);

@@ -155,15 +155,11 @@
 }
 
 - (void)home {
+    SWHomeViewController *home = [[SWHomeViewController alloc] init];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:home];
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        SWHomeViewController_iPad *home = [[SWHomeViewController_iPad alloc] init];
-        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:home];
-        
         self.splitViewController.viewControllers = @[self, navController];
     } else {
-        SWHomeViewController *home = [[SWHomeViewController alloc] init];
-        UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:home];
-        
         [self.slidingViewController setTopViewController:navController];
         [self.slidingViewController resetTopView];
     }

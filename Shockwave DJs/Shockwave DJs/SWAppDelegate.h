@@ -11,7 +11,6 @@
 #import "ECSlidingViewController.h"
 
 #import "SWHomeViewController.h"
-#import "SWHomeViewController_iPad.h"
 #import "SWMenuViewController.h"
 #import "SWChatViewController.h"
 
