@@ -306,6 +306,13 @@
     if (buttonIndex != [actionSheet cancelButtonIndex]) {
         if ([[actionSheet buttonTitleAtIndex:buttonIndex] isEqualToString:@"Clear Chat"]) {
             // Clear chat
+            for (PFObject *object in chatArray) {
+                [object deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                    if ([chatArray count] == 0) {
+                        [self refresh];
+                    }
+                }];
+            }
         } else if (buttonIndex == [actionSheet destructiveButtonIndex]) {
             [self logoutUser];
         }
