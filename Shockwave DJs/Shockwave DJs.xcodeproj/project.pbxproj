@@ -58,6 +58,7 @@
 		175A1D1918CFE05100704587 /* ios7_spotlight_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 175A1D0A18CFE05100704587 /* ios7_spotlight_icon.png */; };
 		175A1D1A18CFE05100704587 /* ios7_spotlight_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 175A1D0B18CFE05100704587 /* ios7_spotlight_icon@2x.png */; };
 		176D98FF18CC2AE6006D33D9 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 176D98FE18CC2AE6006D33D9 /* Settings.bundle */; };
+		178EEC0718D4CFD700B9183D /* SWViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 178EEC0618D4CFD700B9183D /* SWViewController.m */; };
 		17ADDF4F18C5C5AA00128E2B /* SWChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17ADDF4E18C5C5AA00128E2B /* SWChatViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -135,6 +136,8 @@
 		175A1D0A18CFE05100704587 /* ios7_spotlight_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ios7_spotlight_icon.png; sourceTree = "<group>"; };
 		175A1D0B18CFE05100704587 /* ios7_spotlight_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ios7_spotlight_icon@2x.png"; sourceTree = "<group>"; };
 		176D98FE18CC2AE6006D33D9 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		178EEC0518D4CFD700B9183D /* SWViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWViewController.h; sourceTree = "<group>"; };
+		178EEC0618D4CFD700B9183D /* SWViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWViewController.m; sourceTree = "<group>"; };
 		17ADDF4D18C5C5AA00128E2B /* SWChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWChatViewController.h; sourceTree = "<group>"; };
 		17ADDF4E18C5C5AA00128E2B /* SWChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWChatViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -237,6 +240,8 @@
 				1731C19E18C1741800561FAF /* SWAppDelegate.m */,
 				1754BE1A18CF776C003B504E /* SWAudioPlayer.h */,
 				1754BE1B18CF776C003B504E /* SWAudioPlayer.m */,
+				178EEC0518D4CFD700B9183D /* SWViewController.h */,
+				178EEC0618D4CFD700B9183D /* SWViewController.m */,
 				172408AE18C3C7390000BFA1 /* SWTableViewController.h */,
 				172408AF18C3C7390000BFA1 /* SWTableViewController.m */,
 				1734CA3F18C409750051009C /* SWTopTableViewController.h */,
@@ -478,6 +483,7 @@
 			files = (
 				1731C19B18C1741800561FAF /* main.m in Sources */,
 				172408B018C3C7390000BFA1 /* SWTableViewController.m in Sources */,
+				178EEC0718D4CFD700B9183D /* SWViewController.m in Sources */,
 				172408A818C3B9960000BFA1 /* SWMenuViewController.m in Sources */,
 				1754BE1C18CF776C003B504E /* SWAudioPlayer.m in Sources */,
 				1731C19F18C1741800561FAF /* SWAppDelegate.m in Sources */,
