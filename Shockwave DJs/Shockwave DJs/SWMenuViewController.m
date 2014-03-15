@@ -169,6 +169,7 @@
 - (void)home {
     SWHomeViewController *home = [[SWHomeViewController alloc] init];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:home];
+    
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         self.splitViewController.viewControllers = @[self, navController];
     } else {
