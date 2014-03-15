@@ -60,6 +60,7 @@
 		176D98FF18CC2AE6006D33D9 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 176D98FE18CC2AE6006D33D9 /* Settings.bundle */; };
 		178EEC0718D4CFD700B9183D /* SWViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 178EEC0618D4CFD700B9183D /* SWViewController.m */; };
 		178EEC0A18D4D03600B9183D /* SWTopViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 178EEC0918D4D03600B9183D /* SWTopViewController.m */; };
+		178EEC0D18D4D2CD00B9183D /* SWDJs.m in Sources */ = {isa = PBXBuildFile; fileRef = 178EEC0C18D4D2CD00B9183D /* SWDJs.m */; };
 		17ADDF4F18C5C5AA00128E2B /* SWChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17ADDF4E18C5C5AA00128E2B /* SWChatViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -141,6 +142,8 @@
 		178EEC0618D4CFD700B9183D /* SWViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWViewController.m; sourceTree = "<group>"; };
 		178EEC0818D4D03600B9183D /* SWTopViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTopViewController.h; sourceTree = "<group>"; };
 		178EEC0918D4D03600B9183D /* SWTopViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTopViewController.m; sourceTree = "<group>"; };
+		178EEC0B18D4D2CD00B9183D /* SWDJs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWDJs.h; sourceTree = "<group>"; };
+		178EEC0C18D4D2CD00B9183D /* SWDJs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWDJs.m; sourceTree = "<group>"; };
 		17ADDF4D18C5C5AA00128E2B /* SWChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWChatViewController.h; sourceTree = "<group>"; };
 		17ADDF4E18C5C5AA00128E2B /* SWChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWChatViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -257,6 +260,8 @@
 				17ADDF4E18C5C5AA00128E2B /* SWChatViewController.m */,
 				172408A318C3B82A0000BFA1 /* SWHomeViewController.h */,
 				172408A418C3B82A0000BFA1 /* SWHomeViewController.m */,
+				178EEC0B18D4D2CD00B9183D /* SWDJs.h */,
+				178EEC0C18D4D2CD00B9183D /* SWDJs.m */,
 				1731C19518C1741800561FAF /* Supporting Files */,
 			);
 			path = "Shockwave DJs";
@@ -495,6 +500,7 @@
 				1731C19F18C1741800561FAF /* SWAppDelegate.m in Sources */,
 				17ADDF4F18C5C5AA00128E2B /* SWChatViewController.m in Sources */,
 				1734CA4118C409750051009C /* SWTopTableViewController.m in Sources */,
+				178EEC0D18D4D2CD00B9183D /* SWDJs.m in Sources */,
 				172408A018C3B4FB0000BFA1 /* ECSlidingViewController.m in Sources */,
 				172408A518C3B82A0000BFA1 /* SWHomeViewController.m in Sources */,
 			);
