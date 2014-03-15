@@ -43,6 +43,7 @@
     } else {
         self.cover = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.navigationController.view.frame.size.width, 10 + self.navigationController.view.frame.size.width/4 + 10)];
     }
+    self.cover.backgroundColor = [UIColor blackColor];
     self.cover.layer.masksToBounds = YES;
     self.cover.contentMode = UIViewContentModeScaleAspectFill;
     // Setup cover cover
@@ -55,8 +56,10 @@
     } else {
         self.profilePic = [[UIImageView alloc] initWithFrame:CGRectMake(10, 10, self.navigationController.view.frame.size.width/4, self.navigationController.view.frame.size.width/4)];
     }
+    self.profilePic.layer.cornerRadius = self.profilePic.frame.size.height/2;
+    self.profilePic.layer.masksToBounds = YES;
     self.profilePic.layer.borderColor = [UIColor whiteColor].CGColor;
-    self.profilePic.layer.borderWidth = 2.0f;
+    self.profilePic.layer.borderWidth = 3.0f;
     // Load stuff
     [self refresh];
     
@@ -101,11 +104,21 @@
             self.cover.image = nil;
             self.profilePic.image = nil;
             if (!error) {
+                // Init UIImage editing
+                // CIContext *context = [CIContext contextWithOptions:nil];
+                // CIImage *inputImage = [[CIImage alloc] initWithImage:[UIImage imageWithData:data]];
+                // Darken cover
+                // CIFilter *filter = [CIFilter filterWithName:@"CIGaussianBlur"];
+                // [filter setValue:inputImage forKey:@"inputImage"];
+                // [filter setValue:[NSNumber numberWithFloat:5.0] forKey:@"inputRadius"];
+                // Your output image
+                // self.cover.image = [UIImage imageWithCGImage:[context createCGImage:filter.outputImage fromRect:filter.outputImage.extent]];
                 self.cover.image = [UIImage imageWithData:data];
-                self.profilePic.image = [UIImage imageWithData:data];
-                self.profilePic.layer.cornerRadius = self.profilePic.frame.size.height/2;
-                self.profilePic.layer.masksToBounds = YES;
+                // Add cover
                 [self.view insertSubview:self.cover belowSubview:self.coverCover];
+                // Set profilePic
+                self.profilePic.image = [UIImage imageWithData:data];
+                // Add profilePic
                 [self.navigationController.view addSubview:self.profilePic];
             }
         }];
