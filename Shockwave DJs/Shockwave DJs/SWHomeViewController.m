@@ -77,7 +77,7 @@
     [self.refreshControl beginRefreshing];
     PFQuery *query1 = [PFQuery queryWithClassName:@"DJamatterfactMixes"];
     query1.limit = 1000;
-    [query1 whereKey:@"url" containsString:@"http://k007.kiwi6.com/hotlink/"];
+    [query1 whereKey:@"url" notEqualTo:@"<#string#>"];
     [query1 findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         feedContent = [[NSMutableArray alloc] init];
         for (PFObject *object in objects) {
@@ -91,7 +91,7 @@
         
         PFQuery *query2 = [PFQuery queryWithClassName:@"DJunknownMixes"];
         query2.limit = 1000;
-        [query2 whereKey:@"url" containsString:@"http://k007.kiwi6.com/hotlink/"];
+        [query2 whereKey:@"url" notEqualTo:@"<#string#>"];
         [query2 findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
             for (PFObject *object in objects) {
                 [feedContent addObject:object];
@@ -104,7 +104,7 @@
             
             PFQuery *query3 = [PFQuery queryWithClassName:@"DJbloodshotMixes"];
             query3.limit = 1000;
-            [query3 whereKey:@"url" containsString:@"http://k007.kiwi6.com/hotlink/"];
+            [query3 whereKey:@"url" notEqualTo:@"<#string#>"];
             [query3 findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
                 for (PFObject *object in objects) {
                     [feedContent addObject:object];
@@ -117,7 +117,7 @@
                 
                 PFQuery *query4 = [PFQuery queryWithClassName:@"DJlovellMixes"];
                 query4.limit = 1000;
-                [query4 whereKey:@"url" containsString:@"http://k007.kiwi6.com/hotlink/"];
+                [query4 whereKey:@"url" notEqualTo:@"<#string#>"];
                 [query4 findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
                     for (PFObject *object in objects) {
                         [feedContent addObject:object];
