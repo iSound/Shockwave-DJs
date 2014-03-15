@@ -18,5 +18,9 @@
 }
 
 - (void)refresh;
+- (void)updatePlayerToolbar:(NSNotification *)notification;
+- (void)playMix;
+- (void)pauseMix;
+- (void)stopMix;
 
 @end

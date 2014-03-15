@@ -18,5 +18,9 @@
 }
 
 - (void)refresh;
+- (void)updatePlayerToolbar:(NSNotification *)notification;
+- (void)play;
+- (void)pause;
+- (void)stop;
 
 @end

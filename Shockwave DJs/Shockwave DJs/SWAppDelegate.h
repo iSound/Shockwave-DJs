@@ -27,6 +27,7 @@
 
 - (void)playRecordedMix:(NSNotification *)notification;
 - (void)pauseRecordedMix:(NSNotification *)notification;
+- (void)resumeRecordedMix:(NSNotification *)notification;
 - (void)playLiveMix:(NSNotification *)notification;
 - (void)stopMix:(NSNotification *)notification;
 

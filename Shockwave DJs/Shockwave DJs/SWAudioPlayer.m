@@ -11,12 +11,14 @@
 @implementation SWAudioPlayer
 
 - (id)initWithMix:(PFObject *)object {
+    self.mixObject = object;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateDurationNowPlaying:) name:MPMovieDurationAvailableNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(donePlayingMix:) name:MPMoviePlayerPlaybackDidFinishNotification object:object];
     return [self initWithContentURL:[NSURL URLWithString:[object objectForKey:@"url"]]];
 }
 
 - (id)initWithLiveMix:(PFObject *)object {
+    self.mixObject = object;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(donePlayingMix:) name:MPMoviePlayerPlaybackDidFinishNotification object:object];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(metadataUpdate:) name:MPMoviePlayerTimedMetadataUpdatedNotification object:nil];
     return [self initWithContentURL:[NSURL URLWithString:[object objectForKey:@"url"]]];
@@ -37,30 +39,27 @@
         [errorAlert show];
     }
     [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"playingMix" object:nil userInfo:nil];
 }
 
-- (void)pause:(PFObject *)object {
+- (void)resume {
+    [self play:self.mixObject];
+}
+
+- (void)pause {
     [super pause];
-    NSError *error;
-    [[AVAudioSession sharedInstance] setActive:NO error:&error];
-    if (error) {
-        UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
-        [errorAlert show];
-    }
+    [[AVAudioSession sharedInstance] setActive:NO error:nil];
     [[UIApplication sharedApplication] endReceivingRemoteControlEvents];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"pausedMix" object:nil userInfo:nil];
 }
 
-- (void)stop:(PFObject *)object {
-    [self stop];
-    [object incrementKey:@"plays"];
-    [object saveEventually];
-    NSError *error;
-    [[AVAudioSession sharedInstance] setActive:NO error:&error];
-    if (error) {
-        UIAlertView *errorAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:error.localizedDescription delegate:self cancelButtonTitle:@"Dismiss" otherButtonTitles:nil];
-        [errorAlert show];
-    }
+- (void)stop {
+    [super stop];
+    [self.mixObject incrementKey:@"plays"];
+    [self.mixObject saveEventually];
+    [[AVAudioSession sharedInstance] setActive:NO error:nil];
     [[UIApplication sharedApplication] endReceivingRemoteControlEvents];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"doneMix" object:nil userInfo:nil];
 }
 
 - (void)prepareToPlay:(PFObject *)object {

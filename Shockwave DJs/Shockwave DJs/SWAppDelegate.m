@@ -14,8 +14,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    if ([[[UIViewController alloc] init] respondsToSelector:@selector(edgesForExtendedLayout)]) {
-        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
+    if (![[[UIViewController alloc] init] respondsToSelector:@selector(edgesForExtendedLayout)]) {
+        [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault animated:YES];
     }
     if ([self.window respondsToSelector:@selector(setTintColor:)]) {
         // [self.window setTintColor:[UIColor blueColor]];
@@ -68,7 +68,8 @@
     
     // Audio Player notifications
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playRecordedMix:) name:@"playRecordedMix" object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playRecordedMix:) name:@"pauseRecordedMix" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(pauseRecordedMix:) name:@"pauseRecordedMix" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resumeRecordedMix:) name:@"resumeRecordedMix" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(playLiveMix:) name:@"playLiveMix" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(stopMix:) name:@"stopMix" object:nil];
     
@@ -103,16 +104,22 @@
 }
 
 - (void)pauseRecordedMix:(NSNotification *)notification {
-    [self.audioPlayer pause:(PFObject *)[notification object]];
+    [self.audioPlayer pause];
+}
+
+- (void)resumeRecordedMix:(NSNotification *)notification {
+    [self.audioPlayer resume];
 }
 
 - (void)playLiveMix:(NSNotification *)notification {
-    [self.audioPlayer initWithLiveMix:(PFObject *)[notification object]];
+    self.audioPlayer = [[SWAudioPlayer alloc] initWithLiveMix:(PFObject *)[notification object]];
+    [self.audioPlayer prepareToPlay:(PFObject *)[notification object]];
+    [self.audioPlayer play:(PFObject *)[notification object]];
 }
 
 - (void)stopMix:(NSNotification *)notification {
     // Update plays
-    [self.audioPlayer stop:(PFObject *)[notification object]];
+    [self.audioPlayer stop];
 }
 
 @end

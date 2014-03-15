@@ -35,7 +35,7 @@
     self.navigationController.navigationBar.translucent = YES;
     
     UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
-    refresh.tintColor = [UIColor blueColor];
+    refresh.tintColor = [UIColor blackColor];
     [refresh addTarget:self action:@selector(refresh) forControlEvents:UIControlEventValueChanged];
     self.refreshControl = refresh;
     
@@ -46,6 +46,16 @@
 
 - (void)viewWillAppear:(BOOL)animated {
     [self refresh];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updatePlayerToolbar:) name:@"playingMix" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updatePlayerToolbar:) name:@"pausedMix" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updatePlayerToolbar:) name:@"doneMix" object:nil];
+}
+
+- (void)viewWillDisappear:(BOOL)animated {
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"playingMix" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"pausedMix" object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"doneMix" object:nil];
 }
 
 - (void)bannerViewDidLoadAd:(ADBannerView *)banner {
@@ -117,6 +127,21 @@
             }];
         }];
     }];
+}
+
+- (void)updatePlayerToolbar:(NSNotification *)notification {
+    if ([[notification name] isEqualToString:@"playingMix"]) {
+        self.navigationController.toolbarHidden = NO;
+        self.navigationController.toolbar.barStyle = UIBarStyleBlack;
+        if ([self respondsToSelector:@selector(barTintColor)]) {
+            self.navigationController.toolbar.tintColor = [UIColor whiteColor];
+        }
+        self.toolbarItems = @[[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil], [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPause target:self action:nil], [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:nil], [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil]];
+    } else if ([[notification name] isEqualToString:@"pausedMix"]) {
+        self.toolbarItems = @[[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil], [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay target:self action:nil], [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:nil], [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil]];
+    } else if ([[notification name] isEqualToString:@"doneMix"]) {
+        self.navigationController.toolbarHidden = YES;
+    }
 }
 
 #pragma mark - Table view data source

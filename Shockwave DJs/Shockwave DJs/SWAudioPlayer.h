@@ -12,11 +12,12 @@
 
 @interface SWAudioPlayer : MPMoviePlayerController
 
+@property (nonatomic, strong) PFObject *mixObject;
+
 - (id)initWithMix:(PFObject *)object;
 - (id)initWithLiveMix:(PFObject *)object;
 - (void)play:(PFObject *)object;
-- (void)pause:(PFObject *)object;
-- (void)stop:(PFObject *)object;
+- (void)resume;
 - (void)prepareToPlay:(PFObject *)object;
 - (void)setNowPlaying:(PFObject *)object;
 
