@@ -10,6 +10,8 @@
 
 #import "SWHomeViewController.h"
 
+#import "SWDJs.h"
+
 #import "SWChatViewController.h"
 
 #import "SWTableViewController.h"

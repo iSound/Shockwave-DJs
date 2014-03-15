@@ -166,19 +166,51 @@
 }
 
 - (void)amatterfact {
+    SWDJs *dj = [[SWDJs alloc] initWithDJ:[section1 objectAtIndex:0] withColor:[UIColor orangeColor]];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:dj];
     
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        self.splitViewController.viewControllers = @[self, navController];
+    } else {
+        [self.slidingViewController setTopViewController:navController];
+        [self.slidingViewController resetTopView];
+    }
 }
 
 - (void)unknown {
+    SWDJs *dj = [[SWDJs alloc] initWithDJ:[section1 objectAtIndex:1] withColor:[UIColor greenColor]];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:dj];
     
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        self.splitViewController.viewControllers = @[self, navController];
+    } else {
+        [self.slidingViewController setTopViewController:navController];
+        [self.slidingViewController resetTopView];
+    }
 }
 
 - (void)bloodshot {
+    SWDJs *dj = [[SWDJs alloc] initWithDJ:[section1 objectAtIndex:2] withColor:[UIColor redColor]];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:dj];
     
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        self.splitViewController.viewControllers = @[self, navController];
+    } else {
+        [self.slidingViewController setTopViewController:navController];
+        [self.slidingViewController resetTopView];
+    }
 }
 
 - (void)lovell {
+    SWDJs *dj = [[SWDJs alloc] initWithDJ:[section1 objectAtIndex:3] withColor:[UIColor clearColor]];
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:dj];
     
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        self.splitViewController.viewControllers = @[self, navController];
+    } else {
+        [self.slidingViewController setTopViewController:navController];
+        [self.slidingViewController resetTopView];
+    }
 }
 
 - (void)facebook {
