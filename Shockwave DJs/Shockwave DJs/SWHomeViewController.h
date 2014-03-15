@@ -14,6 +14,8 @@
 @interface SWHomeViewController : SWTopTableViewController <ADBannerViewDelegate> {
     NSMutableArray *feedContent;
     
+    BOOL bannerIsVisible;
+    
     ADBannerView *iAd;
 }
 

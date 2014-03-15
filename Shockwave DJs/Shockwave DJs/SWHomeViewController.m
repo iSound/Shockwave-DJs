@@ -59,12 +59,18 @@
 }
 
 - (void)bannerViewDidLoadAd:(ADBannerView *)banner {
-    [banner setFrame:CGRectMake(banner.frame.origin.x, self.navigationController.view.frame.size.height - banner.frame.size.height, banner.frame.origin.x, banner.frame.size.height)];
+    if (self.navigationController.toolbarHidden) {
+        [banner setFrame:CGRectMake(banner.frame.origin.x, self.navigationController.view.frame.size.height - banner.frame.size.height, banner.frame.origin.x, banner.frame.size.height)];
+    } else {
+        [banner setFrame:CGRectMake(banner.frame.origin.x, self.navigationController.view.frame.size.height - self.navigationController.navigationBar.frame.size.height - banner.frame.size.height, banner.frame.origin.x, banner.frame.size.height)];
+    }
     [self.navigationController.view addSubview:banner];
+    bannerIsVisible = YES;
 }
 
 - (void)bannerView:(ADBannerView *)banner didFailToReceiveAdWithError:(NSError *)error {
     [banner removeFromSuperview];
+    bannerIsVisible = NO;
 }
 
 - (void)refresh {
@@ -131,6 +137,13 @@
 
 - (void)updatePlayerToolbar:(NSNotification *)notification {
     if ([[notification name] isEqualToString:@"playingMix"]) {
+        // Move iAd if visible
+        if (bannerIsVisible) {
+            [iAd setFrame:CGRectMake(iAd.frame.origin.x, self.navigationController.view.frame.size.height - iAd.frame.size.height, iAd.frame.origin.x, iAd.frame.size.height)];
+        } else {
+            [iAd setFrame:CGRectMake(iAd.frame.origin.x, self.navigationController.view.frame.size.height - self.navigationController.navigationBar.frame.size.height - iAd.frame.size.height, iAd.frame.origin.x, iAd.frame.size.height)];
+        }
+        
         self.navigationController.toolbarHidden = NO;
         self.navigationController.toolbar.barStyle = UIBarStyleBlack;
         if ([self respondsToSelector:@selector(barTintColor)]) {
@@ -140,6 +153,12 @@
     } else if ([[notification name] isEqualToString:@"pausedMix"]) {
         self.toolbarItems = @[[[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil], [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemPlay target:self action:nil], [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemStop target:self action:nil], [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil]];
     } else if ([[notification name] isEqualToString:@"doneMix"]) {
+        // Move iAd if visible
+        if (bannerIsVisible) {
+            [iAd setFrame:CGRectMake(iAd.frame.origin.x, self.navigationController.view.frame.size.height - iAd.frame.size.height, iAd.frame.origin.x, iAd.frame.size.height)];
+        } else {
+            [iAd setFrame:CGRectMake(iAd.frame.origin.x, self.navigationController.view.frame.size.height - self.navigationController.navigationBar.frame.size.height - iAd.frame.size.height, iAd.frame.origin.x, iAd.frame.size.height)];
+        }
         self.navigationController.toolbarHidden = YES;
     }
 }
