@@ -29,12 +29,7 @@
     [super viewDidLoad];
     // Tint color
     self.navigationController.navigationBarHidden = YES;
-    if ([self.navigationController.navigationBar respondsToSelector:@selector(barTintColor)]) {
-        self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
-        self.navigationController.navigationBar.barTintColor = self.djColor;
-    } else {
-        self.navigationController.navigationBar.tintColor = self.djColor;
-    }
+    self.view.backgroundColor = [UIColor blackColor];
     // Set mix class list
     self.mixClassList = [NSString stringWithFormat:@"DJ%@Mixes", [self.djName lowercaseString]];
     // Setup cover
@@ -58,8 +53,13 @@
     }
     self.profilePic.layer.cornerRadius = self.profilePic.frame.size.height/2;
     self.profilePic.layer.masksToBounds = YES;
-    self.profilePic.layer.borderColor = [UIColor whiteColor].CGColor;
-    self.profilePic.layer.borderWidth = 3.0f;
+    // self.profilePic.layer.borderColor = [UIColor whiteColor].CGColor;
+    self.profilePic.layer.borderColor = self.djColor.CGColor;
+    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+        self.profilePic.layer.borderWidth = 2.4f;
+    } else {
+        self.profilePic.layer.borderWidth = 1.0f;
+    }
     // Setup DJ Name Label
 
     // Load stuff
