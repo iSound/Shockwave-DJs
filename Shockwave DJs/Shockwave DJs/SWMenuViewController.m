@@ -55,12 +55,6 @@
     }
 }
 
-- (void)viewWillAppear:(BOOL)animated {
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        [self.tableView selectRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0] animated:YES scrollPosition:UITableViewScrollPositionTop];
-    }
-}
-
 #pragma mark - Table view data source
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
@@ -125,13 +119,7 @@
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone) {
-        [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    } else if (indexPath.section == 2) {
-        if (indexPath.row != 5) {
-            [tableView deselectRowAtIndexPath:indexPath animated:YES];
-        }
-    }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     if (indexPath.section == 0) {
         if (indexPath.row == 0) {
@@ -215,7 +203,7 @@
 }
 
 - (void)lovell {
-    SWDJs *dj = [[SWDJs alloc] initWithDJ:[section1 objectAtIndex:3] withColor:[UIColor clearColor]];
+    SWDJs *dj = [[SWDJs alloc] initWithDJ:[section1 objectAtIndex:3] withColor:[UIColor blackColor]];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:dj];
     
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
