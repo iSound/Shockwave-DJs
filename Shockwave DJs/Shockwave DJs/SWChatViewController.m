@@ -84,7 +84,7 @@
     }
     
     if ([PFUser currentUser]) {
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:[PFUser currentUser].username style:UIBarButtonItemStyleBordered target:self action:@selector(showAdminOptions:)];
+        self.navigationItem.rightBarButtonItems = @[[[UIBarButtonItem alloc] initWithTitle:[PFUser currentUser].username style:UIBarButtonItemStyleBordered target:self action:@selector(showAdminOptions:)], self.editButtonItem];
     } else {
         self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Login" style:UIBarButtonItemStyleBordered target:self action:@selector(loginUser)];
     }
@@ -227,7 +227,7 @@
 
 - (void)logInViewController:(PFLogInViewController *)logInController didLogInUser:(PFUser *)user {
     if ([PFUser currentUser]) {
-        self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:[PFUser currentUser].username style:UIBarButtonItemStyleBordered target:self action:@selector(showAdminOptions:)];
+        self.navigationItem.rightBarButtonItems = @[[[UIBarButtonItem alloc] initWithTitle:[PFUser currentUser].username style:UIBarButtonItemStyleBordered target:self action:@selector(showAdminOptions:)], self.editButtonItem];
     }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -308,9 +308,9 @@
             // Clear chat
             for (PFObject *object in chatArray) {
                 [object deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                    if ([chatArray count] == 0) {
-                        [self refresh];
-                    }
+                    int index = [chatArray indexOfObject:object];
+                    [chatArray removeObject:object];
+                    [self.tableView deleteRowsAtIndexPaths:@[[NSIndexPath indexPathForItem:index inSection:0]] withRowAnimation:UITableViewRowAnimationAutomatic];
                 }];
             }
         } else if (buttonIndex == [actionSheet destructiveButtonIndex]) {
