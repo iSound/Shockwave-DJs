@@ -74,7 +74,7 @@
 
 - (void)handleSwipeLeft {
     if (UIInterfaceOrientationIsPortrait(self.interfaceOrientation)) {
-        [self showMasterView];
+        [self hideMasterView];
     }
 }
 
@@ -86,7 +86,7 @@
 
 - (void)handleTap {
     if (UIInterfaceOrientationIsPortrait(self.interfaceOrientation)) {
-        [self showMasterView];
+        [self hideMasterView];
     }
 }
 
@@ -110,11 +110,6 @@
         CGRect rootFrame = rootView.frame;
         rootFrame.origin.x += rootFrame.size.width;
         
-        rootView.layer.borderWidth = 1.0f;
-        rootView.layer.cornerRadius = 5.0f;
-        rootView.layer.shadowOpacity = 0.8f;
-        rootView.layer.shadowOffset = CGSizeMake(-5, 0);
-        
         [UIView beginAnimations:@"showView" context:NULL];
         rootView.frame = rootFrame;
         [UIView commitAnimations];
@@ -131,10 +126,6 @@
         UIView *rootView = rootViewController.view;
         CGRect rootFrame = rootView.frame;
         rootFrame.origin.x -= rootFrame.size.width;
-        
-        rootView.layer.borderWidth = 0.0f;
-        rootView.layer.cornerRadius = 0.0f;
-        rootView.layer.shadowOpacity = 0.0f;
         
         [UIView beginAnimations:@"showView" context:NULL];
         rootView.frame = rootFrame;
