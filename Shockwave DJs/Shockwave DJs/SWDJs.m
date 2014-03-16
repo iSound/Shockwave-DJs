@@ -43,7 +43,7 @@
     self.cover.contentMode = UIViewContentModeScaleAspectFill;
     // Setup cover cover
     self.coverCover = [[UIView alloc] initWithFrame:self.cover.frame];
-    self.coverCover.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.5f];
+    self.coverCover.backgroundColor = [UIColor colorWithWhite:0.0f alpha:0.75f];
     [self.view addSubview:self.coverCover];
     // Setup poster
     if ([self respondsToSelector:@selector(edgesForExtendedLayout)]) {
@@ -60,19 +60,72 @@
     } else {
         self.profilePic.layer.borderWidth = 1.0f;
     }
+    if ([self.profilePic respondsToSelector:@selector(addMotionEffect:)]) {
+        UIInterpolatingMotionEffect *xTilt = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.x" type:UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis];
+        xTilt.minimumRelativeValue = [NSNumber numberWithFloat: -10];
+        xTilt.maximumRelativeValue = [NSNumber numberWithFloat: 10];
+        
+        UIInterpolatingMotionEffect *yTilt = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.y" type:UIInterpolatingMotionEffectTypeTiltAlongVerticalAxis];
+        yTilt.minimumRelativeValue = [NSNumber numberWithFloat: -10];
+        yTilt.maximumRelativeValue = [NSNumber numberWithFloat: 10];
+        
+        UIMotionEffectGroup *group = [[UIMotionEffectGroup alloc] init];
+        group.motionEffects = @[xTilt, yTilt];
+        [self.profilePic addMotionEffect:group];
+    }
     // Setup DJ Name Label
+    self.djNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(10 + self.profilePic.frame.size.width + 10, self.profilePic.frame.origin.y, self.navigationController.view.frame.size.width - 10 - self.profilePic.frame.size.width - 10 - 10, self.profilePic.frame.size.height/2)];
+    self.djNameLabel.textAlignment = NSTextAlignmentCenter;
+    self.djNameLabel.textColor = [UIColor whiteColor];
+    self.djNameLabel.text = [NSString stringWithFormat:@"DJ %@", self.djName];
+    self.djNameLabel.font = [UIFont fontWithName:self.djNameLabel.font.fontName size:self.djNameLabel.frame.size.height];
+    self.djNameLabel.adjustsFontSizeToFitWidth = YES;
+    if ([self.djNameLabel respondsToSelector:@selector(addMotionEffect:)]) {
+        UIInterpolatingMotionEffect *xTilt = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.x" type:UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis];
+        xTilt.minimumRelativeValue = [NSNumber numberWithFloat: -10];
+        xTilt.maximumRelativeValue = [NSNumber numberWithFloat: 10];
+        
+        UIInterpolatingMotionEffect *yTilt = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.y" type:UIInterpolatingMotionEffectTypeTiltAlongVerticalAxis];
+        yTilt.minimumRelativeValue = [NSNumber numberWithFloat: -10];
+        yTilt.maximumRelativeValue = [NSNumber numberWithFloat: 10];
+        
+        UIMotionEffectGroup *group = [[UIMotionEffectGroup alloc] init];
+        group.motionEffects = @[xTilt, yTilt];
+        [self.djNameLabel addMotionEffect:group];
+    }
+    [self.navigationController.view addSubview:self.djNameLabel];
+    // Setup DJ Mix Amount Label
+    self.djMixAmountLabel = [[UILabel alloc] initWithFrame:CGRectMake(self.djNameLabel.frame.origin.x, self.djNameLabel.frame.origin.y + self.djNameLabel.frame.size.height, self.djNameLabel.frame.size.width, self.djNameLabel.frame.size.height)];
+    self.djMixAmountLabel.text = @"Loading mixes...";
+    self.djMixAmountLabel.textAlignment = self.djNameLabel.textAlignment;
+    self.djMixAmountLabel.textColor = [UIColor lightTextColor];
+    self.djMixAmountLabel.font = [UIFont fontWithName:self.djNameLabel.font.fontName size:self.djNameLabel.font.pointSize/2];
+    if ([self.djMixAmountLabel respondsToSelector:@selector(addMotionEffect:)]) {
+        UIInterpolatingMotionEffect *xTilt = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.x" type:UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis];
+        xTilt.minimumRelativeValue = [NSNumber numberWithFloat: -10];
+        xTilt.maximumRelativeValue = [NSNumber numberWithFloat: 10];
+        
+        UIInterpolatingMotionEffect *yTilt = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.y" type:UIInterpolatingMotionEffectTypeTiltAlongVerticalAxis];
+        yTilt.minimumRelativeValue = [NSNumber numberWithFloat: -10];
+        yTilt.maximumRelativeValue = [NSNumber numberWithFloat: 10];
+        
+        UIMotionEffectGroup *group = [[UIMotionEffectGroup alloc] init];
+        group.motionEffects = @[xTilt, yTilt];
+        [self.djMixAmountLabel addMotionEffect:group];
+    }
+    [self.navigationController.view addSubview:self.djMixAmountLabel];
 
     // Load stuff
     [self refresh];
     
     // Add mix manually
     /*
-    PFObject *object = [PFObject objectWithClassName:@"DJlovellMixes"];
-    object[@"artist"] = @"DJ Lovell";
-    object[@"iconURL"] = @"http://images-mix.netdna-ssl.com/w/600/h/600/q/85/upload/images/extaudio/6c7f9d6c-9d18-4936-9579-3924ebceeb57.png";
+    PFObject *object = [PFObject objectWithClassName:@"<#string#>"];
+    object[@"artist"] = @"<#string#>";
+    object[@"iconURL"] = @"<#string#>";
     object[@"mixDate"] = [NSDate date];
-    object[@"name"] = @"Live at Electro";
-    object[@"plays"] = @13;
+    object[@"name"] = @"<#string#>";
+    object[@"plays"] = @0;
     object[@"url"] = @"<#string#>";
     [object saveEventually:^(BOOL succeeded, NSError *error) {
         if (succeeded) {
@@ -88,10 +141,14 @@
     query.limit = 1000;
     [query whereKey:@"url" notEqualTo:@"<#string#>"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        // Clear mixList
         self.mixList = [[NSMutableArray alloc] init];
         for (PFObject *object in objects) {
             [self.mixList addObject:object];
         }
+        // Update # of mixes
+        self.djMixAmountLabel.text = [NSString stringWithFormat:@"♫ %lu", (unsigned long)[self.mixList count]];
+        // Sort mixes by latest - top
         [self.mixList sortUsingComparator:^NSComparisonResult(id dict1, id dict2) {
             NSDate *date1 = [(PFObject *)dict1 objectForKey:@"mixDate"];
             NSDate *date2 = [(PFObject *)dict2 objectForKey:@"mixDate"];
@@ -147,6 +204,13 @@
          ];
     }
     self.profilePic.layer.cornerRadius = self.profilePic.frame.size.height/2;
+    
+    // Reset frame of djNameLabel
+    [self.djNameLabel setFrame:CGRectMake(10 + self.profilePic.frame.size.width + 10, self.profilePic.frame.origin.y, self.navigationController.view.frame.size.width - 10 - self.profilePic.frame.size.width - 10 - 10, self.profilePic.frame.size.height/2)];
+    
+    // Reset frame of djMixAmountLabel
+    [self.djMixAmountLabel setFrame:CGRectMake(self.djNameLabel.frame.origin.x, self.djNameLabel.frame.origin.y + self.djNameLabel.frame.size.height, self.djNameLabel.frame.size.width, self.djNameLabel.frame.size.height)];
+    self.djMixAmountLabel.font = [UIFont fontWithName:self.djNameLabel.font.fontName size:self.djNameLabel.font.pointSize/2];
 }
 
 @end
