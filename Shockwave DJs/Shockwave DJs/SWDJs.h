@@ -8,6 +8,8 @@
 
 #import <Parse/Parse.h>
 
+#import "SWMixCell.h"
+
 #import "SWTopViewController.h"
 
 @interface SWDJs : SWTopViewController <UICollectionViewDataSource, UICollectionViewDelegate>

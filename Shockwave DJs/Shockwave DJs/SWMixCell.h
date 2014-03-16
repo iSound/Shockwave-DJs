@@ -8,4 +8,15 @@
 
 @interface SWMixCell : UICollectionViewCell
 
+@property (nonatomic, strong) UIActivityIndicatorView *loadingCover;
+
+@property (nonatomic, strong) UIImageView *albumArt;
+
+@property (nonatomic, strong) UIView *highlight;
+
+- (void)setAlbumCover:(NSURL *)imageUrl;
+
+- (void)highlightCell;
+- (void)unHighlightCell;
+
 @end

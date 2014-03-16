@@ -113,6 +113,21 @@
         [self.djMixAmountLabel addMotionEffect:group];
     }
     [self.navigationController.view addSubview:self.djMixAmountLabel];
+    
+    // Setup mixes
+    UICollectionViewFlowLayout *flow = [[UICollectionViewFlowLayout alloc] init];
+    flow.itemSize = CGSizeMake(128, 128);
+    flow.minimumInteritemSpacing = 15;
+    flow.minimumLineSpacing = 15;
+    flow.headerReferenceSize = CGSizeMake(self.navigationController.view.frame.size.width - 15 - 15, 15);
+    flow.footerReferenceSize = CGSizeMake(self.navigationController.view.frame.size.width - 15 - 15, 15);
+    
+    self.mixView = [[UICollectionView alloc] initWithFrame:CGRectMake(15, self.cover.frame.origin.y + self.cover.frame.size.height, self.navigationController.view.frame.size.width - 15 - 15, self.navigationController.view.frame.size.height - 15 - 15 - self.cover.frame.size.height) collectionViewLayout:flow];
+    self.mixView.delegate = self;
+    self.mixView.dataSource = self;
+    self.mixView.alwaysBounceVertical = YES;
+    
+    [self.view addSubview:self.mixView];
 
     // Load stuff
     [self refresh];
@@ -153,9 +168,10 @@
             NSDate *date2 = [(PFObject *)dict2 objectForKey:@"mixDate"];
             return [date2 compare:date1];
         }];
+        [self.mixView reloadData];
         // Async loading of posters
         NSURL *url = [NSURL URLWithString:[[self.mixList firstObject] objectForKey:@"iconURL"]];
-        NSURLRequest* request = [NSURLRequest requestWithURL:url];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
         url = nil;
         
         [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
@@ -210,6 +226,45 @@
     // Reset frame of djMixAmountLabel
     [self.djMixAmountLabel setFrame:CGRectMake(self.djNameLabel.frame.origin.x, self.djNameLabel.frame.origin.y + self.djNameLabel.frame.size.height, self.djNameLabel.frame.size.width, self.djNameLabel.frame.size.height)];
     self.djMixAmountLabel.font = [UIFont fontWithName:self.djNameLabel.font.fontName size:self.djNameLabel.font.pointSize/2];
+    
+    // Reset mixView
+    [self.mixView setFrame:CGRectMake(15, self.cover.frame.origin.y + self.cover.frame.size.height, self.navigationController.view.frame.size.width - 15 - 15, self.navigationController.view.frame.size.height - 15 - 15 - self.cover.frame.size.height)];
+}
+
+#pragma mark - Collection view data source
+
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
+    return 1;
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return [self.mixList count];
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *CellIdentifier = @"Cell";
+    [collectionView registerClass:[SWMixCell class] forCellWithReuseIdentifier:CellIdentifier];
+    SWMixCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
+    // Configure the cell...
+    PFObject  *object = [self.mixList objectAtIndex:indexPath.row];
+    
+    [cell setAlbumCover:[NSURL URLWithString:[object objectForKey:@"iconURL"]]];
+    
+    return cell;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath {
+    SWMixCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+    [cell highlightCell];
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didUnhighlightItemAtIndexPath:(NSIndexPath *)indexPath {
+    SWMixCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+    [cell unHighlightCell];
 }
 
 @end
