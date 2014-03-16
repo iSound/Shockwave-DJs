@@ -193,7 +193,6 @@
 			children = (
 				175A1CEE18CFDF1100704587 /* Icons */,
 				175A1CED18CFDF0900704587 /* Launch Images */,
-				17FCB57718C55EDB00191CA2 /* Navigation Bar */,
 				172408B718C3D0A80000BFA1 /* menuBackground.png */,
 				172408B818C3D0A80000BFA1 /* menuBackground@2x.png */,
 			);
@@ -335,29 +334,6 @@
 				175A1D0B18CFE05100704587 /* ios7_spotlight_icon@2x.png */,
 			);
 			name = Icons;
-			sourceTree = "<group>";
-		};
-		17ADDF4718C5C45D00128E2B /* iOS 7 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "iOS 7";
-			sourceTree = "<group>";
-		};
-		17ADDF4818C5C46300128E2B /* iOS 6 */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = "iOS 6";
-			sourceTree = "<group>";
-		};
-		17FCB57718C55EDB00191CA2 /* Navigation Bar */ = {
-			isa = PBXGroup;
-			children = (
-				17ADDF4818C5C46300128E2B /* iOS 6 */,
-				17ADDF4718C5C45D00128E2B /* iOS 7 */,
-			);
-			name = "Navigation Bar";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
