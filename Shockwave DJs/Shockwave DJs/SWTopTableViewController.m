@@ -44,6 +44,23 @@
                 self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Chat" style:UIBarButtonItemStyleBordered target:self action:@selector(showRightChat)];
             }
         }
+    } else {
+        masterIsVisible = NO;
+        
+        UISwipeGestureRecognizer *swipeLeft = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeLeft)];
+        swipeLeft.direction = UISwipeGestureRecognizerDirectionLeft;
+        [self.navigationController.view addGestureRecognizer:swipeLeft];
+        
+        UISwipeGestureRecognizer *swipeRight = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(handleSwipeRight)];
+        swipeRight.direction = UISwipeGestureRecognizerDirectionRight;
+        [self.navigationController.view addGestureRecognizer:swipeRight];
+        
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap)];
+        [self.view addGestureRecognizer:tap];
+        
+        if (UIInterfaceOrientationIsPortrait(self.interfaceOrientation)) {
+            [self addMasterButton];
+        }
     }
 }
 
@@ -53,6 +70,85 @@
 
 - (void)showRightChat {
     [self.slidingViewController anchorTopViewTo:ECLeft];
+}
+
+- (void)handleSwipeLeft {
+    if (UIInterfaceOrientationIsPortrait(self.interfaceOrientation)) {
+        [self showMasterView];
+    }
+}
+
+- (void)handleSwipeRight {
+    if (UIInterfaceOrientationIsPortrait(self.interfaceOrientation)) {
+        [self showMasterView];
+    }
+}
+
+- (void)handleTap {
+    if (UIInterfaceOrientationIsPortrait(self.interfaceOrientation)) {
+        [self showMasterView];
+    }
+}
+
+- (void)addMasterButton {
+    UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStyleBordered target:self action:@selector(showMasterView)];
+    self.navigationItem.leftBarButtonItem = barButtonItem;
+}
+
+- (void)removeMasterButton {
+    self.navigationItem.leftBarButtonItem = nil;
+}
+
+- (void)showMasterView {
+    if (!masterIsVisible) {
+        masterIsVisible = YES;
+        
+        NSArray *controllers = self.splitViewController.viewControllers;
+        UINavigationController *rootViewController = [controllers firstObject];
+        
+        UIView *rootView = rootViewController.view;
+        CGRect rootFrame = rootView.frame;
+        rootFrame.origin.x += rootFrame.size.width;
+        
+        rootView.layer.borderWidth = 1.0f;
+        rootView.layer.cornerRadius = 5.0f;
+        rootView.layer.shadowOpacity = 0.8f;
+        rootView.layer.shadowOffset = CGSizeMake(-5, 0);
+        
+        [UIView beginAnimations:@"showView" context:NULL];
+        rootView.frame = rootFrame;
+        [UIView commitAnimations];
+    }
+}
+
+- (void)hideMasterView {
+    if (masterIsVisible) {
+        masterIsVisible = NO;
+        
+        NSArray *controllers = self.splitViewController.viewControllers;
+        UINavigationController *rootViewController = [controllers firstObject];
+        
+        UIView *rootView = rootViewController.view;
+        CGRect rootFrame = rootView.frame;
+        rootFrame.origin.x -= rootFrame.size.width;
+        
+        rootView.layer.borderWidth = 0.0f;
+        rootView.layer.cornerRadius = 0.0f;
+        rootView.layer.shadowOpacity = 0.0f;
+        
+        [UIView beginAnimations:@"showView" context:NULL];
+        rootView.frame = rootFrame;
+        [UIView commitAnimations];
+    }
+}
+
+- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration {
+    if (UIInterfaceOrientationIsLandscape(toInterfaceOrientation)) {
+        [self hideMasterView];
+        [self removeMasterButton];
+    } else {
+        [self addMasterButton];
+    }
 }
 
 @end

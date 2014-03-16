@@ -8,9 +8,19 @@
 
 #import "SWTableViewController.h"
 
-@interface SWTopTableViewController : SWTableViewController
+@interface SWTopTableViewController : SWTableViewController {
+    BOOL masterIsVisible;
+}
 
 - (void)showLeftMenu;
 - (void)showRightChat;
+
+- (void)handleSwipeLeft;
+- (void)handleSwipeRight;
+- (void)handleTap;
+- (void)addMasterButton;
+- (void)removeMasterButton;
+- (void)showMasterView;
+- (void)hideMasterView;
 
 @end

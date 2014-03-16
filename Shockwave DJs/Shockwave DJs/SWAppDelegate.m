@@ -35,16 +35,15 @@
     }
     
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        self.splitViewController = [[UISplitViewController alloc] init];
-        self.splitViewController.delegate = self;
-        
         SWMenuViewController *menu = [[SWMenuViewController alloc] init];
         UINavigationController *menuNavController = [[UINavigationController alloc] initWithRootViewController:menu];
         
         SWHomeViewController *home = [[SWHomeViewController alloc] init];
         UINavigationController *homeNavController = [[UINavigationController alloc] initWithRootViewController:home];
         
+        self.splitViewController = [[UISplitViewController alloc] init];
         self.splitViewController.viewControllers = @[menuNavController, homeNavController];
+        self.splitViewController.delegate = self;
         
         self.window.rootViewController = self.splitViewController;
     } else {
@@ -75,10 +74,6 @@
     
     [self.window makeKeyAndVisible];
     return YES;
-}
-
-- (BOOL)splitViewController:(UISplitViewController *)svc shouldHideViewController:(UIViewController *)vc inOrientation:(UIInterfaceOrientation)orientation {
-    return NO;
 }
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
