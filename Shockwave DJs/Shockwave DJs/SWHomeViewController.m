@@ -207,7 +207,7 @@
         
         cell.detailTextLabel.adjustsFontSizeToFitWidth = NO;
         cell.detailTextLabel.adjustsLetterSpacingToFitWidth = NO;
-        cell.detailTextLabel.text = [NSString stringWithFormat:@"▶ %d", [[object objectForKey:@"plays"] intValue]];
+        cell.detailTextLabel.text = [NSString stringWithFormat:@"▶︎ %d", [[object objectForKey:@"plays"] intValue]];
         
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         
