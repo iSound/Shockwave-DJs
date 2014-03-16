@@ -220,6 +220,15 @@
             cell.imageView.image = nil;
             if (!error) {
                 cell.imageView.image = [UIImage imageWithData:data];
+                
+                if ([cell.imageView respondsToSelector:@selector(addMotionEffect:)]) {
+                    UIInterpolatingMotionEffect *xTilt = [[UIInterpolatingMotionEffect alloc] initWithKeyPath:@"center.x" type:UIInterpolatingMotionEffectTypeTiltAlongHorizontalAxis];
+                    UIView *tempView = [[[[cell subviews] firstObject] subviews] objectAtIndex:1];
+                    xTilt.minimumRelativeValue = [NSNumber numberWithFloat: tempView.frame.origin.x*-1];
+                    xTilt.maximumRelativeValue = [NSNumber numberWithFloat: tempView.frame.origin.x];
+                    
+                    [cell.imageView addMotionEffect:xTilt];
+                }
                 // cell.imageView.layer.cornerRadius = cell.frame.size.height/2;
                 // cell.imageView.layer.masksToBounds = YES;
             }
