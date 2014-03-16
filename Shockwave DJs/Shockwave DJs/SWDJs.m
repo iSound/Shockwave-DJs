@@ -26,9 +26,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Tint color
+    // Background
     self.navigationController.navigationBarHidden = YES;
-    self.view.backgroundColor = [UIColor blackColor];
+    // self.view.backgroundColor = [UIColor blackColor];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"menuBackground"]];
     // Set mix class list
     self.mixClassList = [NSString stringWithFormat:@"DJ%@Mixes", [self.djName lowercaseString]];
     // Setup cover
@@ -116,7 +117,7 @@
     
     // Setup mixes
     UICollectionViewFlowLayout *flow = [[UICollectionViewFlowLayout alloc] init];
-    flow.itemSize = CGSizeMake(128, 128);
+    flow.itemSize = CGSizeMake(128, 192);
     flow.minimumInteritemSpacing = 15;
     flow.minimumLineSpacing = 15;
     flow.headerReferenceSize = CGSizeMake(self.navigationController.view.frame.size.width - 15 - 15, 15);
@@ -126,6 +127,7 @@
     self.mixView.delegate = self;
     self.mixView.dataSource = self;
     self.mixView.alwaysBounceVertical = YES;
+    self.mixView.backgroundColor = [UIColor clearColor];
     
     [self.view addSubview:self.mixView];
 
@@ -249,6 +251,8 @@
     PFObject  *object = [self.mixList objectAtIndex:indexPath.row];
     
     [cell setAlbumCover:[NSURL URLWithString:[object objectForKey:@"iconURL"]]];
+    [cell setNumberOfPlays:[[object objectForKey:@"plays"] intValue]];
+    [cell setTitleOfMix:[object objectForKey:@"name"]];
     
     return cell;
 }

@@ -12,9 +12,15 @@
 
 @property (nonatomic, strong) UIImageView *albumArt;
 
+@property (nonatomic, strong) UILabel *plays;
+
+@property (nonatomic, strong) UILabel *mixTitle;
+
 @property (nonatomic, strong) UIView *highlight;
 
 - (void)setAlbumCover:(NSURL *)imageUrl;
+- (void)setNumberOfPlays:(int)playInt;
+- (void)setTitleOfMix:(NSString *)title;
 
 - (void)highlightCell;
 - (void)unHighlightCell;
