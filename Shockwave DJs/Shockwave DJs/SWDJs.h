@@ -34,8 +34,6 @@
 @property (nonatomic, strong) UILabel *djNameLabel;
 
 
-// DJ Mix Amount Icon
-@property (nonatomic, strong) UIImageView *djMixAmountIcon;
 // DJ Mix Amount
 @property (nonatomic, strong) UILabel *djMixAmountLabel;
 
