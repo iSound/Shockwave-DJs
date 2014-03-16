@@ -20,7 +20,6 @@
         // Custom initialization
         self.djName = djName;
         self.djColor = djColor;
-        self.title = [NSString stringWithFormat:@"DJ %@", self.djName];
     }
     return self;
 }
