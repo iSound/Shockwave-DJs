@@ -10,7 +10,7 @@
 
 #import "SWTopViewController.h"
 
-@interface SWDJs : SWTopViewController
+@interface SWDJs : SWTopViewController <UICollectionViewDataSource, UICollectionViewDelegate>
 
 // DJ Name
 @property (nonatomic, strong) NSString *djName;
