@@ -30,6 +30,7 @@
 		1731C1BB18C1741900561FAF /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 1731C1B918C1741900561FAF /* InfoPlist.strings */; };
 		1731C1BD18C1741900561FAF /* Shockwave_DJsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1731C1BC18C1741900561FAF /* Shockwave_DJsTests.m */; };
 		1734CA4118C409750051009C /* SWTopTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1734CA4018C409750051009C /* SWTopTableViewController.m */; };
+		17486ED918D60C5900AA1ADA /* SWMixCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 17486ED818D60C5900AA1ADA /* SWMixCell.m */; };
 		1754BE1718CF7689003B504E /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1754BE1618CF7689003B504E /* MediaPlayer.framework */; };
 		1754BE1918CF768F003B504E /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1754BE1818CF768F003B504E /* AVFoundation.framework */; };
 		1754BE1C18CF776C003B504E /* SWAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1754BE1B18CF776C003B504E /* SWAudioPlayer.m */; };
@@ -109,6 +110,8 @@
 		1731C1BC18C1741900561FAF /* Shockwave_DJsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Shockwave_DJsTests.m; sourceTree = "<group>"; };
 		1734CA3F18C409750051009C /* SWTopTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWTopTableViewController.h; sourceTree = "<group>"; };
 		1734CA4018C409750051009C /* SWTopTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWTopTableViewController.m; sourceTree = "<group>"; };
+		17486ED718D60C5900AA1ADA /* SWMixCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWMixCell.h; sourceTree = "<group>"; };
+		17486ED818D60C5900AA1ADA /* SWMixCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWMixCell.m; sourceTree = "<group>"; };
 		1754BE1618CF7689003B504E /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		1754BE1818CF768F003B504E /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		1754BE1A18CF776C003B504E /* SWAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWAudioPlayer.h; sourceTree = "<group>"; };
@@ -261,6 +264,8 @@
 				172408A418C3B82A0000BFA1 /* SWHomeViewController.m */,
 				178EEC0B18D4D2CD00B9183D /* SWDJs.h */,
 				178EEC0C18D4D2CD00B9183D /* SWDJs.m */,
+				17486ED718D60C5900AA1ADA /* SWMixCell.h */,
+				17486ED818D60C5900AA1ADA /* SWMixCell.m */,
 				1731C19518C1741800561FAF /* Supporting Files */,
 			);
 			path = "Shockwave DJs";
@@ -472,6 +477,7 @@
 				172408B018C3C7390000BFA1 /* SWTableViewController.m in Sources */,
 				178EEC0718D4CFD700B9183D /* SWViewController.m in Sources */,
 				172408A818C3B9960000BFA1 /* SWMenuViewController.m in Sources */,
+				17486ED918D60C5900AA1ADA /* SWMixCell.m in Sources */,
 				1754BE1C18CF776C003B504E /* SWAudioPlayer.m in Sources */,
 				1731C19F18C1741800561FAF /* SWAppDelegate.m in Sources */,
 				17ADDF4F18C5C5AA00128E2B /* SWChatViewController.m in Sources */,

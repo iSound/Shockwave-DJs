@@ -33,12 +33,14 @@
 // DJ Name Label
 @property (nonatomic, strong) UILabel *djNameLabel;
 
-
 // DJ Mix Amount
 @property (nonatomic, strong) UILabel *djMixAmountLabel;
 
 // Mix list
 @property (nonatomic, strong) NSMutableArray *mixList;
+
+// Mix Collection
+@property (nonatomic, strong) UICollectionView *mixView;
 
 - (id)initWithDJ:(NSString *)djName withColor:(UIColor *)djColor;
 - (void)refresh;
