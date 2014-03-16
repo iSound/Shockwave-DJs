@@ -213,7 +213,7 @@
         
         // Async loading of posters
         NSURL *url = [NSURL URLWithString:[object objectForKey:@"iconURL"]];
-        NSURLRequest* request = [NSURLRequest requestWithURL:url];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
         url = nil;
         
         [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse *response, NSData *data, NSError *error) {
