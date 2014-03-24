@@ -32,7 +32,6 @@
     } else {
         self.navigationController.navigationBar.tintColor = [UIColor colorWithRed:0.0f green:0.0f blue:0.25f alpha:1.0f];
     }
-    self.navigationController.navigationBar.translucent = YES;
     
     UIRefreshControl *refresh = [[UIRefreshControl alloc] init];
     refresh.tintColor = [UIColor blackColor];
