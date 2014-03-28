@@ -17,9 +17,7 @@
 #import "SWTableViewController.h"
 
 @interface SWMenuViewController : SWTableViewController <MFMailComposeViewControllerDelegate> {
-    NSArray *section0;
-    NSArray *section1;
-    NSArray *section2;
+    NSArray *sections;
 }
 
 - (void)home;

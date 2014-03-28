@@ -46,12 +46,14 @@
     }
     self.tableView.backgroundView = backgroundImage;
     
-    section0 = [[NSArray alloc] initWithObjects:@"Home", nil];
-    section1 = [[NSArray alloc] initWithObjects:@"AMatterFact", @"Unknown", @"Bloodshot", @"Lovell", nil];
+    NSArray *section0 = [[NSArray alloc] initWithObjects:@"Home", nil];
+    NSArray *section1 = [[NSArray alloc] initWithObjects:@"AMatterFact", @"Unknown", @"Bloodshot", @"Lovell", nil];
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        section2 = [[NSArray alloc] initWithObjects:@"Facebook", @"Twitter", @"Instagram", @"Google+", @"Website", @"Email", @"Chat", nil];
+        NSArray *section2 = [[NSArray alloc] initWithObjects:@"Facebook", @"Twitter", @"Instagram", @"Google+", @"Website", @"Email", @"Chat", nil];
+        sections = [[NSArray alloc] initWithObjects:section0, section1, section2, nil];
     } else {
-        section2 = [[NSArray alloc] initWithObjects:@"Facebook", @"Twitter", @"Instagram", @"Google+", @"Website", @"Email", nil];
+        NSArray *section2 = [[NSArray alloc] initWithObjects:@"Facebook", @"Twitter", @"Instagram", @"Google+", @"Website", @"Email", nil];
+        sections = [[NSArray alloc] initWithObjects:section0, section1, section2, nil];
     }
 }
 
@@ -74,20 +76,12 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     // Return the number of sections.
-    return 3;
+    return [sections count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     // Return the number of rows in the section.
-    if (section == 0) {
-        return [section0 count];
-    } else if (section == 1) {
-        return [section1 count];
-    } else if (section == 2) {
-        return [section2 count];
-    } else {
-        return 0;
-    }
+    return [[sections objectAtIndex:section] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -102,13 +96,7 @@
     cell.textLabel.textColor = [UIColor whiteColor];
     cell.textLabel.font = [UIFont fontWithName:@"Helvetica-Neue-Light" size:cell.textLabel.font.pointSize];
     
-    if (indexPath.section == 0) {
-        cell.textLabel.text = [section0 objectAtIndex:indexPath.row];
-    } else if (indexPath.section == 1) {
-        cell.textLabel.text = [section1 objectAtIndex:indexPath.row];
-    } else if (indexPath.section == 2) {
-        cell.textLabel.text = [section2 objectAtIndex:indexPath.row];
-    }
+    cell.textLabel.text = [[sections objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
     
     UIView *selectedView = [[UIView alloc] initWithFrame:cell.frame];
     selectedView.backgroundColor = [UIColor colorWithWhite:1.0f alpha:0.5f];
@@ -167,7 +155,7 @@
 }
 
 - (void)amatterfact {
-    SWDJs *dj = [[SWDJs alloc] initWithDJ:[section1 objectAtIndex:0] withColor:[UIColor orangeColor]];
+    SWDJs *dj = [[SWDJs alloc] initWithDJ:[[sections objectAtIndex:1] objectAtIndex:0] withColor:[UIColor orangeColor]];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:dj];
     
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
@@ -179,7 +167,7 @@
 }
 
 - (void)unknown {
-    SWDJs *dj = [[SWDJs alloc] initWithDJ:[section1 objectAtIndex:1] withColor:[UIColor greenColor]];
+    SWDJs *dj = [[SWDJs alloc] initWithDJ:[[sections objectAtIndex:1] objectAtIndex:1] withColor:[UIColor greenColor]];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:dj];
     
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
@@ -191,7 +179,7 @@
 }
 
 - (void)bloodshot {
-    SWDJs *dj = [[SWDJs alloc] initWithDJ:[section1 objectAtIndex:2] withColor:[UIColor redColor]];
+    SWDJs *dj = [[SWDJs alloc] initWithDJ:[[sections objectAtIndex:1] objectAtIndex:2] withColor:[UIColor redColor]];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:dj];
     
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
@@ -203,7 +191,7 @@
 }
 
 - (void)lovell {
-    SWDJs *dj = [[SWDJs alloc] initWithDJ:[section1 objectAtIndex:3] withColor:[UIColor whiteColor]];
+    SWDJs *dj = [[SWDJs alloc] initWithDJ:[[sections objectAtIndex:1] objectAtIndex:3] withColor:[UIColor whiteColor]];
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:dj];
     
     if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
